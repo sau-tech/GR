@@ -14,6 +14,7 @@
 		D410C2AC2361E3E000C1973D /* GetReady.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D410C2AA2361E3E000C1973D /* GetReady.xcdatamodeld */; };
 		D410C2AE2361E3E100C1973D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D410C2AD2361E3E100C1973D /* Assets.xcassets */; };
 		D410C2B12361E3E100C1973D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D410C2AF2361E3E100C1973D /* LaunchScreen.storyboard */; };
+		D45BCEEE23632DE500792A89 /* Alwyn New Rounded Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D410C2AD2361E3E100C1973D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D410C2B02361E3E100C1973D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D410C2B22361E3E100C1973D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alwyn New Rounded Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,10 @@
 			isa = PBXGroup;
 			children = (
 				D410C2A02361E3E000C1973D /* GetReady */,
+				D410C2B923631C0A00C1973D /* View */,
+				D410C2B823631BFA00C1973D /* Model */,
+				D410C2BA23631C1200C1973D /* Controller */,
+				D45BCEEC23632D5A00792A89 /* font */,
 				D410C29F2361E3E000C1973D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,16 +64,45 @@
 		D410C2A02361E3E000C1973D /* GetReady */ = {
 			isa = PBXGroup;
 			children = (
+				D410C2B22361E3E100C1973D /* Info.plist */,
+				D410C2AA2361E3E000C1973D /* GetReady.xcdatamodeld */,
 				D410C2A12361E3E000C1973D /* AppDelegate.swift */,
 				D410C2A32361E3E000C1973D /* SceneDelegate.swift */,
-				D410C2A52361E3E000C1973D /* ViewController.swift */,
+			);
+			path = GetReady;
+			sourceTree = "<group>";
+		};
+		D410C2B823631BFA00C1973D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D410C2B923631C0A00C1973D /* View */ = {
+			isa = PBXGroup;
+			children = (
 				D410C2A72361E3E000C1973D /* Main.storyboard */,
 				D410C2AD2361E3E100C1973D /* Assets.xcassets */,
 				D410C2AF2361E3E100C1973D /* LaunchScreen.storyboard */,
-				D410C2B22361E3E100C1973D /* Info.plist */,
-				D410C2AA2361E3E000C1973D /* GetReady.xcdatamodeld */,
 			);
-			path = GetReady;
+			path = View;
+			sourceTree = "<group>";
+		};
+		D410C2BA23631C1200C1973D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D410C2A52361E3E000C1973D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D45BCEEC23632D5A00792A89 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45BCEEE23632DE500792A89 /* Alwyn New Rounded Bold.otf in Resources */,
 				D410C2B12361E3E100C1973D /* LaunchScreen.storyboard in Resources */,
 				D410C2AE2361E3E100C1973D /* Assets.xcassets in Resources */,
 				D410C2A92361E3E000C1973D /* Main.storyboard in Resources */,
