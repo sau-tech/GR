@@ -20,31 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pyq-JA-b64" userLabel="YPlayGame">
-                                <rect key="frame" x="24" y="139" width="366" height="582"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellow" translatesAutoresizingMaskIntoConstraints="NO" id="ofS-W6-WhG">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="582"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn5-Ol-QsV">
-                                        <rect key="frame" x="145" y="448" width="76" height="76"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="play"/>
-                                        <connections>
-                                            <action selector="welcome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eff-jf-Qhv"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GET READY FOR THE HOLE IN THE WALL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMs-Xt-pm3">
-                                        <rect key="frame" x="42" y="83" width="282" height="317"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AlwynNewRounded-Bold" family="Alwyn New Rounded" pointSize="48"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK1-82-3Fd" userLabel="Scored/Lose">
                                 <rect key="frame" x="24" y="139" width="366" height="582"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,32 +64,50 @@
                                     </view>
                                 </subviews>
                             </view>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BkB-PB-zAe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-1B-aac" userLabel="preview view">
+                                <rect key="frame" x="-30" y="-60" width="474" height="1016"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="form" translatesAutoresizingMaskIntoConstraints="NO" id="aSn-pW-ISu">
                                 <rect key="frame" x="0.0" y="92" width="414" height="712"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-1B-aac" userLabel="preview view">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="898"/>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pyq-JA-b64" userLabel="YPlayGame">
+                                <rect key="frame" x="24" y="139" width="366" height="582"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellow" translatesAutoresizingMaskIntoConstraints="NO" id="ofS-W6-WhG">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="582"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn5-Ol-QsV">
+                                        <rect key="frame" x="145" y="448" width="76" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="welcome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eff-jf-Qhv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GET READY FOR THE HOLE IN THE WALL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMs-Xt-pm3">
+                                        <rect key="frame" x="42" y="83" width="282" height="317"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AlwynNewRounded-Bold" family="Alwyn New Rounded" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-gW-msa">
-                                <rect key="frame" x="0.0" y="736" width="414" height="162"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-gW-msa">
+                                <rect key="frame" x="0.0" y="734" width="414" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gcR-gW-msa" secondAttribute="height" multiplier="23:9" id="hPd-AR-DcB"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-dj-hW7">
-                                <rect key="frame" x="0.0" y="-2" width="414" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lbu-jU-qzm">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-dj-hW7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pnc-dj-hW7" secondAttribute="height" multiplier="23:7" id="tVh-Ob-M1R"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-V3-kEa">
                                 <rect key="frame" x="101" y="66" width="44" height="41"/>
@@ -146,18 +139,26 @@
                                 <rect key="frame" x="55" y="849" width="33" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="capture"/>
-                                <connections>
-                                    <action selector="didTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zqz-4n-faZ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gcR-gW-msa" secondAttribute="bottom" id="0QO-C4-Tgl"/>
+                            <constraint firstItem="nUc-1B-aac" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-60" id="2Gf-83-dtR"/>
+                            <constraint firstItem="gcR-gW-msa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AE8-dB-lKM"/>
+                            <constraint firstItem="pnc-dj-hW7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="O7y-5T-18Y"/>
+                            <constraint firstItem="pnc-dj-hW7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QbE-gl-tVY"/>
+                            <constraint firstAttribute="bottom" secondItem="nUc-1B-aac" secondAttribute="bottom" constant="-60" id="RJH-L6-DnF"/>
+                            <constraint firstAttribute="trailing" secondItem="nUc-1B-aac" secondAttribute="trailing" constant="-30" id="WSe-yX-JMJ"/>
+                            <constraint firstItem="gcR-gW-msa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cnq-R5-srX"/>
+                            <constraint firstItem="pnc-dj-hW7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lZP-0I-pIS"/>
+                            <constraint firstItem="nUc-1B-aac" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-30" id="zqe-kt-A2A"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="BtnPause" destination="2Os-T6-LcY" id="iE0-RE-Gum"/>
                         <outlet property="btnPlay" destination="hn5-Ol-QsV" id="Q2Y-BK-Mn9"/>
-                        <outlet property="didTakePhoto" destination="Naq-oQ-Hge" id="m4K-DC-BjX"/>
                         <outlet property="form" destination="aSn-pW-ISu" id="uJV-WW-VRO"/>
                         <outlet property="prepareToPlayView" destination="Pyq-JA-b64" id="Cqr-YZ-lUs"/>
                         <outlet property="previewView" destination="nUc-1B-aac" id="rNv-3q-DOI"/>

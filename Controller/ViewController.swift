@@ -19,14 +19,17 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     @IBOutlet weak var contador: UILabel!
 
     @IBOutlet weak var prepareToPlayView: UIView!
-    
     @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var didTakePhoto: UIButton!
-    @IBOutlet weak var captureImageView: UIImageView!
     
      var captureSession: AVCaptureSession!
      var stillImageOutput: AVCapturePhotoOutput!
      var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+     var imagePicker: UIImagePickerController!
+    
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,34 +100,4 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             }
         }
     }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        
-        guard let imageData = photo.fileDataRepresentation()
-            else { return }
-        
-        let image = UIImage(data: imageData)
-        captureImageView.image = image
-    }
-    
-    @IBAction func didTakePhoto(_ sender: Any) {
-        
-        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        stillImageOutput.capturePhoto(with: settings, delegate: self)
-        
-    }
-    
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.captureSession.stopRunning()
-    }
-    
-  
 }
-    
-  
-    
-
-
