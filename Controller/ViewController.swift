@@ -37,6 +37,22 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        initCamera()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        prepareToPlayView.isHidden = false
+        prepareToPlayView.alpha = 1
+        btnPlay.isEnabled = true
+        
+        super.viewWillAppear(animated)
+        
+    }
+    
+    func initCamera() {
+        
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .high
         
@@ -60,32 +76,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
         }
-        
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        
-        prepareToPlayView.isHidden = false
-        prepareToPlayView.alpha = 1
-        btnPlay.isEnabled = true
-        
-        super.viewWillAppear(animated)
-        
-    }
-
-//    Print da tela - esta dando errado pois nao esta capturando a camera. Botao esta escondido e desativado
-//    func getPrintScreen(){
-//        let imageToShare = self.view.toImage()
-//        let activityItems : NSMutableArray = []
-//        activityItems.add(imageToShare)
-//        let activityVC = UIActivityViewController(activityItems:activityItems as [AnyObject] , applicationActivities: nil)
-//        self.present(activityVC, animated: true, completion: nil)
-//    }
-
-//    @IBAction func printImage(_ sender: Any) {
-//         getPrintScreen()
-//    }
-    
     
     @IBAction func welcome(_ sender: Any) {
         prepareToPlayView.isHidden = true
