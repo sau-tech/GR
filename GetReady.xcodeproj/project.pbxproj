@@ -17,6 +17,9 @@
 		D45BCEEE23632DE500792A89 /* Alwyn New Rounded Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */; };
 		D45BCEF02363316D00792A89 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BCEEF2363316D00792A89 /* WinViewController.swift */; };
 		D4F992302369BFBF002C5312 /* PrintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F9922F2369BFBF002C5312 /* PrintExtension.swift */; };
+		D4F992322369CB6E002C5312 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F992312369CB6E002C5312 /* TutorialViewController.swift */; };
+		D4F992342369CBEC002C5312 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F992332369CBEC002C5312 /* Slide.swift */; };
+		D4F992362369CC70002C5312 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F992352369CC70002C5312 /* Slide.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alwyn New Rounded Bold.otf"; sourceTree = "<group>"; };
 		D45BCEEF2363316D00792A89 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		D4F9922F2369BFBF002C5312 /* PrintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintExtension.swift; sourceTree = "<group>"; };
+		D4F992312369CB6E002C5312 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		D4F992332369CBEC002C5312 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		D4F992352369CC70002C5312 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,8 @@
 				D410C2A72361E3E000C1973D /* Main.storyboard */,
 				D410C2AD2361E3E100C1973D /* Assets.xcassets */,
 				D410C2AF2361E3E100C1973D /* LaunchScreen.storyboard */,
+				D4F992352369CC70002C5312 /* Slide.xib */,
+				D4F992332369CBEC002C5312 /* Slide.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 			children = (
 				D410C2A52361E3E000C1973D /* ViewController.swift */,
 				D45BCEEF2363316D00792A89 /* WinViewController.swift */,
+				D4F992312369CB6E002C5312 /* TutorialViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F992362369CC70002C5312 /* Slide.xib in Resources */,
 				D45BCEEE23632DE500792A89 /* Alwyn New Rounded Bold.otf in Resources */,
 				D410C2B12361E3E100C1973D /* LaunchScreen.storyboard in Resources */,
 				D410C2AE2361E3E100C1973D /* Assets.xcassets in Resources */,
@@ -192,11 +202,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D410C2A62361E3E000C1973D /* ViewController.swift in Sources */,
+				D4F992322369CB6E002C5312 /* TutorialViewController.swift in Sources */,
 				D410C2A22361E3E000C1973D /* AppDelegate.swift in Sources */,
 				D45BCEF02363316D00792A89 /* WinViewController.swift in Sources */,
 				D410C2AC2361E3E000C1973D /* GetReady.xcdatamodeld in Sources */,
 				D410C2A42361E3E000C1973D /* SceneDelegate.swift in Sources */,
 				D4F992302369BFBF002C5312 /* PrintExtension.swift in Sources */,
+				D4F992342369CBEC002C5312 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

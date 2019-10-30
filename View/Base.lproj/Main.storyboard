@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b3l-d5-i6B">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -12,6 +12,43 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Tutorial View Controller-->
+        <scene sceneID="sTd-uY-4di">
+            <objects>
+                <viewController id="b3l-d5-i6B" customClass="TutorialViewController" customModule="GetReady" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CHX-eQ-F7i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C7O-97-QUP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="V5W-2e-muZ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="3hc-QK-9qx"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KIq-Fm-1pn">
+                                <rect key="frame" x="188" y="825" width="38" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="C7O-97-QUP" firstAttribute="leading" secondItem="F2V-G4-o4m" secondAttribute="leading" id="OGA-ZW-oWS"/>
+                            <constraint firstItem="C7O-97-QUP" firstAttribute="centerX" secondItem="CHX-eQ-F7i" secondAttribute="centerX" id="epK-r6-mzB"/>
+                            <constraint firstItem="C7O-97-QUP" firstAttribute="centerY" secondItem="CHX-eQ-F7i" secondAttribute="centerY" id="gCN-1v-nVz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F2V-G4-o4m"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="KIq-Fm-1pn" id="4q3-DD-XjE"/>
+                        <outlet property="scrollView" destination="C7O-97-QUP" id="Yf9-KC-hKj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Vv-5R-ntK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="-512.27678571428567"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
