@@ -9,7 +9,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
 
     
     
-    @IBOutlet weak var BtnPause: UIButton!
+    @IBOutlet weak var btnPause: UIButton!
     @IBOutlet weak var txtWelcome: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var txtRedScore: UILabel!
@@ -39,6 +39,22 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        initCamera()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        prepareToPlayView.isHidden = false
+        prepareToPlayView.alpha = 1
+        btnPlay.isEnabled = true
+        
+        super.viewWillAppear(animated)
+        
+    }
+    
+    func initCamera() {
+        
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .high
         
@@ -62,19 +78,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
         }
-        
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        
-        prepareToPlayView.isHidden = false
-        prepareToPlayView.alpha = 1
-        btnPlay.isEnabled = true
-        
-        super.viewWillAppear(animated)
-        
-    }
-    
     
     @IBAction func welcome(_ sender: Any) {
         prepareToPlayView.isHidden = true
