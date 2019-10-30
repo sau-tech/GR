@@ -16,6 +16,7 @@
 		D410C2B12361E3E100C1973D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D410C2AF2361E3E100C1973D /* LaunchScreen.storyboard */; };
 		D45BCEEE23632DE500792A89 /* Alwyn New Rounded Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */; };
 		D45BCEF02363316D00792A89 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BCEEF2363316D00792A89 /* WinViewController.swift */; };
+		D4F992302369BFBF002C5312 /* PrintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F9922F2369BFBF002C5312 /* PrintExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D410C2B22361E3E100C1973D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alwyn New Rounded Bold.otf"; sourceTree = "<group>"; };
 		D45BCEEF2363316D00792A89 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
+		D4F9922F2369BFBF002C5312 /* PrintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 				D410C2A02361E3E000C1973D /* GetReady */,
 				D410C2B923631C0A00C1973D /* View */,
 				D410C2B823631BFA00C1973D /* Model */,
+				D4F9922E2369BF81002C5312 /* Extension */,
 				D410C2BA23631C1200C1973D /* Controller */,
 				D45BCEEC23632D5A00792A89 /* font */,
 				D410C29F2361E3E000C1973D /* Products */,
@@ -106,6 +109,14 @@
 				D45BCEED23632DE500792A89 /* Alwyn New Rounded Bold.otf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		D4F9922E2369BF81002C5312 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D4F9922F2369BFBF002C5312 /* PrintExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				D45BCEF02363316D00792A89 /* WinViewController.swift in Sources */,
 				D410C2AC2361E3E000C1973D /* GetReady.xcdatamodeld in Sources */,
 				D410C2A42361E3E000C1973D /* SceneDelegate.swift in Sources */,
+				D4F992302369BFBF002C5312 /* PrintExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,14 +9,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
 
     
     
-    @IBOutlet weak var BtnPause: UIButton!
     @IBOutlet weak var txtWelcome: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var txtRedScore: UILabel!
     @IBOutlet weak var txtBlueScore: UILabel!
     @IBOutlet weak var txtTimer: UILabel!
     @IBOutlet weak var form: UIImageView!
-    @IBOutlet weak var contador: UILabel!
 
     @IBOutlet weak var prepareToPlayView: UIView!
     @IBOutlet weak var previewView: UIView!
@@ -74,6 +72,19 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         super.viewWillAppear(animated)
         
     }
+
+//    Print da tela - esta dando errado pois nao esta capturando a camera. Botao esta escondido e desativado
+//    func getPrintScreen(){
+//        let imageToShare = self.view.toImage()
+//        let activityItems : NSMutableArray = []
+//        activityItems.add(imageToShare)
+//        let activityVC = UIActivityViewController(activityItems:activityItems as [AnyObject] , applicationActivities: nil)
+//        self.present(activityVC, animated: true, completion: nil)
+//    }
+
+//    @IBAction func printImage(_ sender: Any) {
+//         getPrintScreen()
+//    }
     
     
     @IBAction func welcome(_ sender: Any) {
