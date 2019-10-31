@@ -7,7 +7,8 @@ import AVFoundation
 
 class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    
+    var model = Model.shared
+    var timer = Timer()
     
     @IBOutlet weak var txtWelcome: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
@@ -38,7 +39,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        initCamera()
+        initScreen()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +49,20 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         btnPlay.isEnabled = true
         
         super.viewWillAppear(animated)
+        
+    }
+    
+    func initScreen(){
+        
+        model.time = TimeInterval(15.0)
+        
+        // Achar o lugar certo dessa função!
+        iniciarTimer()
+        
+        txtRedScore.text = String(model.teams[0].points)
+        txtBlueScore.text = String(model.teams[1].points)
+        
+        initCamera()
         
     }
     
@@ -76,6 +91,31 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
         }
+    }
+    
+    func iniciarTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.passoTimer()
+        })
+    }
+    
+    // A cada iteração (1 segundo), executa:
+    func passoTimer(){
+        
+        if model.time > 0 {
+            model.time -= 1
+            refreshTimer()
+        } else {
+            print("cabou o tempo!")
+        }
+    }
+    
+    func refreshTimer() {
+        refreshTimerLabels()
+    }
+    
+    func refreshTimerLabels() {
+        txtTimer.text = String(model.time)
     }
     
     @IBAction func welcome(_ sender: Any) {
