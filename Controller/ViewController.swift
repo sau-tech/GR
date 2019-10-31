@@ -54,8 +54,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func initScreen(){
         
-        iniciarTimer(segundos: 10)
-        
         txtRedScore.text = String(model.teams[0].points)
         txtBlueScore.text = String(model.teams[1].points)
         
@@ -98,14 +96,27 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         })
     }
     
-    // A cada iteração (1 segundo), executa:
+    @IBAction func playButton(_ sender: Any) {
+        iniciarTimer(segundos: 10)
+    }
+    
+    // A cada 1 segundo, executa:
     func passoTimer(){
         
         if model.time > 0 {
             model.time -= 1
             refreshTimer()
         } else {
-            print("cabou o tempo!")
+            // Stop the timer
+            timer.invalidate()
+            
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "Win") as? WinViewController {
+                
+                // Define o time vencedor
+                model.vencedor = 0
+                
+                self.present(vc, animated:true, completion:nil)
+            }
         }
     }
     
