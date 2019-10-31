@@ -115,7 +115,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     func refreshTimerLabels() {
-        txtTimer.text = String(model.time)
+        txtTimer.text = String(Int(model.time))
     }
     
     @IBAction func welcome(_ sender: Any) {

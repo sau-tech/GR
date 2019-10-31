@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b3l-d5-i6B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -101,9 +101,8 @@
                                     </view>
                                 </subviews>
                             </view>
-                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-1B-aac" userLabel="preview view">
-                                <rect key="frame" x="-17" y="-46" width="448" height="972"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-1B-aac" userLabel="preview view">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="form" translatesAutoresizingMaskIntoConstraints="NO" id="aSn-pW-ISu">
@@ -135,10 +134,6 @@
                                     </label>
                                 </subviews>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redTimer" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-gW-msa">
-                                <rect key="frame" x="-4" y="740" width="424" height="164"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-dj-hW7">
                                 <rect key="frame" x="0.0" y="7" width="414" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -157,9 +152,14 @@
                                 <color key="textColor" red="0.0" green="0.6405530571937561" blue="0.82417517900466919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-s0-Sy1">
-                                <rect key="frame" x="189" y="805" width="37" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redTimer" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-gW-msa">
+                                <rect key="frame" x="0.0" y="740.5" width="414" height="156.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156.5" id="gfJ-W4-UZB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-s0-Sy1">
+                                <rect key="frame" x="0.0" y="798.5" width="414" height="38.5"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="30"/>
                                 <color key="textColor" red="0.21481543779373169" green="0.24295568466186523" blue="0.25969177484512329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -174,6 +174,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gcR-gW-msa" secondAttribute="bottom" constant="-35" id="2as-HX-YeT"/>
+                            <constraint firstItem="nUc-1B-aac" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9ZG-RO-gVa"/>
+                            <constraint firstItem="gcR-gW-msa" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="CH7-0E-ijo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="nUc-1B-aac" secondAttribute="top" id="HPe-WV-Cj4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nUc-1B-aac" secondAttribute="bottom" id="KIB-DV-y2b"/>
+                            <constraint firstItem="gcR-gW-msa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nyl-z4-sMa"/>
+                            <constraint firstItem="hcK-s0-Sy1" firstAttribute="leading" secondItem="gcR-gW-msa" secondAttribute="leading" id="UUj-8j-FDb"/>
+                            <constraint firstItem="hcK-s0-Sy1" firstAttribute="top" secondItem="gcR-gW-msa" secondAttribute="top" constant="58" id="WaU-v6-xoT"/>
+                            <constraint firstItem="hcK-s0-Sy1" firstAttribute="trailing" secondItem="gcR-gW-msa" secondAttribute="trailing" id="WvR-vZ-sXc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="nUc-1B-aac" secondAttribute="leading" id="av9-9U-UvG"/>
+                            <constraint firstItem="hcK-s0-Sy1" firstAttribute="bottom" secondItem="gcR-gW-msa" secondAttribute="bottom" constant="-60" id="iEx-vO-Keq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
