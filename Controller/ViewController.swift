@@ -54,10 +54,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func initScreen(){
         
-        model.time = TimeInterval(15.0)
-        
-        // Achar o lugar certo dessa função!
-        iniciarTimer()
+        iniciarTimer(segundos: 10)
         
         txtRedScore.text = String(model.teams[0].points)
         txtBlueScore.text = String(model.teams[1].points)
@@ -93,7 +90,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         }
     }
     
-    func iniciarTimer() {
+    func iniciarTimer(segundos: TimeInterval) {
+        model.time = segundos
+        refreshTimer()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.passoTimer()
         })
