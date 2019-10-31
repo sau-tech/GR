@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b3l-d5-i6B">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -31,6 +31,14 @@
                                 <color key="pageIndicatorTintColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </pageControl>
+                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vk-fI-0b0">
+                                <rect key="frame" x="286" y="770" width="92" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="play_1"/>
+                                <connections>
+                                    <action selector="goToGame:" destination="b3l-d5-i6B" eventType="touchUpInside" id="n4O-nz-5eH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -41,6 +49,7 @@
                         <viewLayoutGuide key="safeArea" id="F2V-G4-o4m"/>
                     </view>
                     <connections>
+                        <outlet property="goToGame" destination="0vk-fI-0b0" id="Ps6-c9-P2y"/>
                         <outlet property="pageControl" destination="KIq-Fm-1pn" id="4q3-DD-XjE"/>
                         <outlet property="scrollView" destination="C7O-97-QUP" id="Yf9-KC-hKj"/>
                     </connections>
@@ -49,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="-512.27678571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--viewcontroller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GetReady" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewcontroller" title="viewcontroller" id="BYZ-38-t0r" customClass="ViewController" customModule="GetReady" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,6 +198,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hWb-Qp-Ve1"/>
                     <connections>
                         <outlet property="btnPlay" destination="hn5-Ol-QsV" id="Q2Y-BK-Mn9"/>
                         <outlet property="form" destination="aSn-pW-ISu" id="uJV-WW-VRO"/>
@@ -240,6 +250,7 @@
         <image name="capture" width="32.5" height="28"/>
         <image name="form" width="319.5" height="621.5"/>
         <image name="play" width="75.5" height="75.5"/>
+        <image name="play_1" width="121.5" height="121.5"/>
         <image name="redTimer" width="413" height="156.5"/>
         <image name="redscore" width="366" height="582"/>
         <image name="redwin" width="414" height="896"/>

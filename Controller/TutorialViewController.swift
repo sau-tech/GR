@@ -10,6 +10,7 @@ import UIKit
 
 class TutorialViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var goToGame: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     var slides:[Slide] = []
@@ -26,44 +27,50 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
+        goToGame.alpha = 1
+        goToGame.isHidden = false
+        goToGame.isEnabled = true
+        
         
     }
     
     func createSlides() -> [Slide] {
 
     let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "1")
+        slide1.imageView.image = UIImage(named: "1")
+    
     
     let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "2")
+        slide2.imageView.image = UIImage(named: "2")
     
     let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "3")
+        slide3.imageView.image = UIImage(named: "3")
     
     let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "4")
+        slide4.imageView.image = UIImage(named: "4")
     
     let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "5")
-    
+        slide5.imageView.image = UIImage(named: "5")
+
     let slide6:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "6")
-    
+        slide6.imageView.image = UIImage(named: "6")
+        
     let slide7:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "7")
-    
+        slide7.imageView.image = UIImage(named: "7")
+        
     let slide8:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "8")
-    
+        slide8.imageView.image = UIImage(named: "8")
+        
     let slide9:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "9")
-    
+        slide9.imageView.image = UIImage(named: "9")
+        
     let slide10:Slide = Bundle.main.loadNibNamed("Slide", owner: self , options: nil)?.first as! Slide
-    slide1.imageView.image = UIImage(named: "10")
+        slide10.imageView.image = UIImage(named: "10")
     
-    
-    return [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10]
+    return [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10 ]
     }
+    
+    
     
     func setupSlideScrollView(slides : [Slide]) {
            scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
@@ -73,8 +80,24 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
            for i in 0 ..< slides.count {
                slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
                scrollView.addSubview(slides[i])
+            
            }
        }
+    
+     
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+            pageControl.currentPage = Int(pageIndex)
+           
+        }
+    
+    
+    @IBAction func goToGame(_ sender: Any) {
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "viewcontroller") as? ViewController {
+            self.present(vc, animated:false, completion:nil)
+        }
+    }
     
 
 }
