@@ -109,7 +109,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         } else {
             // Stop the timer
             timer.invalidate()
-            
+            print("acabou")
             if let vc = storyboard?.instantiateViewController(withIdentifier: "Win") as? WinViewController {
                 
                 // Define o time vencedor
@@ -152,4 +152,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             }
         }
     }
+    
+    @IBAction func goToTutorial(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "tutorial") as? TutorialViewController {
+                   self.present(vc, animated:false, completion:nil)
+               }
+    }
+    
 }

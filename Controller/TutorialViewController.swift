@@ -10,7 +10,6 @@ import UIKit
 
 class TutorialViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet weak var goToGame: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     var slides:[Slide] = []
@@ -27,9 +26,6 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
-        goToGame.alpha = 1
-        goToGame.isHidden = false
-        goToGame.isEnabled = true
         
         
     }
@@ -90,14 +86,7 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
             pageControl.currentPage = Int(pageIndex)
            
         }
-    
-    
-    @IBAction func goToGame(_ sender: Any) {
-        
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "viewcontroller") as? ViewController {
-            self.present(vc, animated:false, completion:nil)
-        }
-    }
+
     
 
 }
