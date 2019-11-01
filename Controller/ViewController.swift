@@ -10,6 +10,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     var model = Model.shared
     var timer = Timer()
     
+    let finishLine = 10
+    let totalTime: TimeInterval = 3.0
+    
     @IBOutlet weak var txtWelcome: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var txtRedScore: UILabel!
@@ -24,6 +27,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
      var stillImageOutput: AVCapturePhotoOutput!
      var videoPreviewLayer: AVCaptureVideoPreviewLayer!
      var imagePicker: UIImagePickerController!
+    
+    @IBOutlet weak var scoredView: UIView!
     
     enum ImageSource {
         case photoLibrary
@@ -97,7 +102,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     @IBAction func playButton(_ sender: Any) {
-        iniciarTimer(segundos: 10)
+        iniciarTimer(segundos: totalTime)
     }
     
     // A cada 1 segundo, executa:
@@ -107,16 +112,46 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             model.time -= 1
             refreshTimer()
         } else {
-            // Stop the timer
-            timer.invalidate()
-            print("acabou")
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "Win") as? WinViewController {
-                
-                // Define o time vencedor
-                model.vencedor = 0
-                
-                self.present(vc, animated:true, completion:nil)
-            }
+            timeIsUp()
+        }
+    }
+    
+    func timeIsUp(){
+        
+        // If nobody has any points (begining)
+        if model.teams[0].points == 0, model.teams[1].points == 0 {
+            
+        }
+        // If somebody has scored but haven't won.
+        else if model.teams[0].points < finishLine, model.teams[1].points < finishLine {
+            showScored()
+        }
+        // Some team won!
+        else {
+            callVictory()
+        }
+        
+        // Stop the timer
+        timer.invalidate()
+    }
+    
+    func showScored(){
+        scoredView.alpha = 1.0
+    }
+    
+    func callVictory(){
+        // RED won
+        if model.teams[0].points >= finishLine {
+            model.vencedor = 0
+        }
+        // BLUE won
+        else {
+            model.vencedor = 1
+        }
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Win") as? WinViewController {
+            // Call the ViewController
+            self.present(vc, animated:true, completion:nil)
         }
     }
     

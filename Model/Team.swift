@@ -9,8 +9,11 @@
 import Foundation
 
 class Team {
-    var points = 0
+    var points : Int!
     init(pts: Int) {
         self.points = pts
+    }
+    init(){
+        self.points = 0
     }
 }

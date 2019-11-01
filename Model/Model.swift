@@ -14,5 +14,5 @@ class Model {
     var time = TimeInterval(10.0)
     var vencedor = -1
     // The Team[0] is the red team and the Team [1] is the blue one.
-    var teams : [Team] = [Team(pts: 50), Team(pts: 20)]
+    var teams : [Team] = [Team(), Team(pts: 12)]
 }
