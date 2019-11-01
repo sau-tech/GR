@@ -62,7 +62,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="form" translatesAutoresizingMaskIntoConstraints="NO" id="aSn-pW-ISu">
-                                <rect key="frame" x="0.0" y="130" width="414" height="603"/>
+                                <rect key="frame" x="0.0" y="141" width="414" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK1-82-3Fd" userLabel="Scored/Lose">
@@ -105,7 +105,7 @@
                                 </subviews>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pyq-JA-b64" userLabel="YPlayGame">
-                                <rect key="frame" x="24" y="139" width="366" height="582"/>
+                                <rect key="frame" x="24" y="151" width="366" height="582"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellow" translatesAutoresizingMaskIntoConstraints="NO" id="ofS-W6-WhG">
@@ -131,24 +131,17 @@
                                 </subviews>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-dj-hW7">
-                                <rect key="frame" x="0.0" y="7" width="414" height="126"/>
+                                <rect key="frame" x="0.0" y="-4" width="414" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-V3-kEa">
-                                <rect key="frame" x="112" y="81" width="44" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="36"/>
-                                <color key="textColor" red="0.74514478445053101" green="0.22160348296165466" blue="0.24663436412811279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kug-oC-0SY">
-                                <rect key="frame" x="256" y="81" width="44" height="41"/>
+                                <rect key="frame" x="264" y="87" width="44" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.6405530571937561" blue="0.82417517900466919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redTimer" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-gW-msa">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueTimer" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-gW-msa">
                                 <rect key="frame" x="0.0" y="740.5" width="414" height="156.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="156.5" id="gfJ-W4-UZB"/>
@@ -161,13 +154,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-oQ-Hge">
-                                <rect key="frame" x="317" y="836" width="56" height="40"/>
+                                <rect key="frame" x="322" y="836" width="51" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="capture"/>
+                                <state key="normal" image="tutorial"/>
                                 <connections>
                                     <action selector="goToTutorial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iiW-6a-6q9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-V3-kEa">
+                                <rect key="frame" x="97" y="87" width="44" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="36"/>
+                                <color key="textColor" red="0.74514478445053101" green="0.22160348296165466" blue="0.24663436412811279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -234,14 +234,14 @@
     </scenes>
     <resources>
         <image name="blue" width="366" height="582"/>
-        <image name="capture" width="32.5" height="28"/>
+        <image name="blueTimer" width="413" height="158.5"/>
         <image name="form" width="319.5" height="621.5"/>
         <image name="play" width="75.5" height="75.5"/>
-        <image name="redTimer" width="413" height="156.5"/>
         <image name="redscore" width="366" height="582"/>
         <image name="redwin" width="414" height="896"/>
         <image name="replay" width="79" height="78.5"/>
-        <image name="score" width="300" height="146"/>
+        <image name="score" width="414.5" height="146.5"/>
+        <image name="tutorial" width="56" height="50.5"/>
         <image name="yellow" width="366" height="582"/>
     </resources>
 </document>
