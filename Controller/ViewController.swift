@@ -22,13 +22,15 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
 
     @IBOutlet weak var prepareToPlayView: UIView!
     @IBOutlet weak var previewView: UIView!
-    
-     var captureSession: AVCaptureSession!
-     var stillImageOutput: AVCapturePhotoOutput!
-     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
-     var imagePicker: UIImagePickerController!
-    
     @IBOutlet weak var scoredView: UIView!
+    @IBOutlet weak var scoredLabel: UILabel!
+    @IBOutlet weak var scoredUIImageView: UIImageView!
+    
+
+    var captureSession: AVCaptureSession!
+    var stillImageOutput: AVCapturePhotoOutput!
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    var imagePicker: UIImagePickerController!
     
     enum ImageSource {
         case photoLibrary
@@ -118,6 +120,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func timeIsUp(){
         
+        definePoints()
+        
         // If nobody has any points (begining)
         if model.teams[0].points == 0, model.teams[1].points == 0 {
             
@@ -135,18 +139,45 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         timer.invalidate()
     }
     
+    func julgaPose() -> Float {
+        var score : Float
+        score = 1.0
+        return score
+    }
+    
+    func definePoints(){
+        
+    }
+    
     func showScored(){
+        
+        // RED team playing
+        if model.teamAtual == 0 {
+            
+        }
+        // BLUE team playing
+        else {
+            if julgaPose() > 0.9 {
+                scoredLabel.text = "THE BLUE TEAM SCORED!"
+                scoredUIImageView.image = UIImage(named: "bluescore")
+            } else {
+                scoredLabel.text = "THE BLUE TEAM LOSE!"
+                scoredUIImageView.image = UIImage(named: "bluelose")
+                
+            }
+        }
+
         scoredView.alpha = 1.0
     }
     
     func callVictory(){
         // RED won
         if model.teams[0].points >= finishLine {
-            model.vencedor = 0
+            model.winner = 0
         }
         // BLUE won
         else {
-            model.vencedor = 1
+            model.winner = 1
         }
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Win") as? WinViewController {

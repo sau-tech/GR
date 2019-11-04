@@ -12,7 +12,8 @@ class Model {
     static var shared = Model()
     
     var time = TimeInterval(10.0)
-    var vencedor = -1
+    var winner = -1
+    var teamAtual = -1
     // The Team[0] is the red team and the Team [1] is the blue one.
-    var teams : [Team] = [Team(), Team(pts: 12)]
+    var teams : [Team] = [Team(), Team(pts: 4)]
 }

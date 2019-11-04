@@ -23,11 +23,11 @@ class WinViewController: UIViewController {
     }
     func refreshWinner() {
         // If RED won
-        if model.vencedor == 0 {
+        if model.winner == 0 {
             self.backGround.image = UIImage(named: "redwin")
         }
         // If BLUE won
-        else if model.vencedor == 1 {
+        else if model.winner == 1 {
             self.backGround.image = UIImage(named: "bluewin")
         }
         // Mensagem de Erro
