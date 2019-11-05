@@ -10,14 +10,20 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     var model = Model.shared
     var timer = Timer()
     
+    // Points needed for winning
     let finishLine = 10
+    // Points got when a team win a phase
+    let pointsForPhase = 3
+    // Precision for judging the pose [0.0 ~ 1.0]
+    let precision : Double = 0.85
+    // Total time for a phase
     let totalTime: TimeInterval = 3.0
     
-    @IBOutlet weak var txtWelcome: UILabel!
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
-    @IBOutlet weak var txtRedScore: UILabel!
-    @IBOutlet weak var txtBlueScore: UILabel!
-    @IBOutlet weak var txtTimer: UILabel!
+    @IBOutlet weak var redScoreLabel: UILabel!
+    @IBOutlet weak var blueScoreLabel: UILabel!
+    @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var form: UIImageView!
 
     @IBOutlet weak var prepareToPlayView: UIView!
@@ -61,8 +67,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func initScreen(){
         
-        txtRedScore.text = String(model.teams[0].points)
-        txtBlueScore.text = String(model.teams[1].points)
+        redScoreLabel.text = String(model.teams[0].points)
+        blueScoreLabel.text = String(model.teams[1].points)
         
         initCamera()
         
@@ -95,7 +101,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         }
     }
     
-    func iniciarTimer(segundos: TimeInterval) {
+    func startTimer(segundos: TimeInterval) {
         model.time = segundos
         refreshTimer()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
@@ -104,7 +110,24 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     @IBAction func playButton(_ sender: Any) {
-        iniciarTimer(segundos: totalTime)
+        startPhase()
+    }
+    
+    func startPhase() {
+        
+        model.winner = -1
+        model.secondsInPose = TimeInterval(0)
+        
+        // Team that starts
+        if model.actualTeam == -1 {
+            model.actualTeam = 0
+        } else if model.actualTeam == 0 {
+            model.actualTeam = 1
+        } else {
+            model.actualTeam = 0
+        }
+        
+        startTimer(segundos: totalTime)
     }
     
     // A cada 1 segundo, executa:
@@ -120,59 +143,82 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func timeIsUp(){
         
-        definePoints()
-        
-        // If nobody has any points (begining)
-        if model.teams[0].points == 0, model.teams[1].points == 0 {
-            
-        }
-        // If somebody has scored but haven't won.
-        else if model.teams[0].points < finishLine, model.teams[1].points < finishLine {
-            showScored()
-        }
-        // Some team won!
-        else {
-            callVictory()
-        }
-        
         // Stop the timer
         timer.invalidate()
+        
+        attachPoints()
+        refreshScoreLabels()
+        
+        // If the team haven't made any points
+        if model.actualPoints == 0 {
+            showLosed()
+        }
+        // The current team won!
+        else if model.teams[model.actualTeam].points > finishLine {
+            callVictory()
+        }
+        // If somebody has scored but haven't won.
+        else {
+            showScored()
+        }
+        
     }
     
-    func julgaPose() -> Float {
-        var score : Float
+    func judgePose() -> Double {
+        var score : Double
         score = 1.0
         return score
     }
     
-    func definePoints(){
-        
+    func attachPoints(){
+        if judgePose() > precision {
+            model.actualPoints = pointsForPhase
+            model.teams[model.actualTeam].points += pointsForPhase
+        }
     }
     
+    // Set the team infos and show the view
+    // when the current team scored
     func showScored(){
         
-        // RED team playing
-        if model.teamAtual == 0 {
-            
-        }
-        // BLUE team playing
-        else {
-            if julgaPose() > 0.9 {
-                scoredLabel.text = "THE BLUE TEAM SCORED!"
-                scoredUIImageView.image = UIImage(named: "bluescore")
-            } else {
-                scoredLabel.text = "THE BLUE TEAM LOSE!"
-                scoredUIImageView.image = UIImage(named: "bluelose")
-                
-            }
-        }
+        scoredLabel.text = "THE \(ACTUALTEAM()) TEAM SCORED!"
+        scoredUIImageView.image = UIImage(named: "\(actualTeam())score")
 
         scoredView.alpha = 1.0
     }
     
+    // Set the team infos and show the view
+    // when the current team losed
+    func showLosed(){
+        
+        scoredLabel.text = "THE \(ACTUALTEAM()) TEAM LOSE!"
+        scoredUIImageView.image = UIImage(named: "\(actualTeam())lose")
+
+        scoredView.alpha = 1.0
+        
+    }
+    
+    func actualTeam() -> String {
+        if model.actualTeam == 0 {
+            return "red"
+        }
+        return "blue"
+    }
+    
+    func ACTUALTEAM() -> String {
+        if model.actualTeam == 0 {
+            return "RED"
+        }
+        return "BLUE"
+    }
+    
     func callVictory(){
+        
+        if model.teams[0].points == model.teams[1].points {
+            // TODO: EMPATE! O QUE FAZER?
+        }
         // RED won
-        if model.teams[0].points >= finishLine {
+        else if model.teams[0].points >= finishLine {
             model.winner = 0
         }
         // BLUE won
@@ -191,7 +237,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     func refreshTimerLabels() {
-        txtTimer.text = String(Int(model.time))
+        TimerLabel.text = String(Int(model.time))
+    }
+    
+    func refreshScoreLabels() {
+        redScoreLabel.text = String(model.teams[0].points)
+        blueScoreLabel.text = String(model.teams[1].points)
     }
     
     @IBAction func welcome(_ sender: Any) {

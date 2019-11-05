@@ -187,17 +187,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="hWb-Qp-Ve1"/>
                     <connections>
+                        <outlet property="TimerLabel" destination="hcK-s0-Sy1" id="Ujm-sF-X5w"/>
+                        <outlet property="blueScoreLabel" destination="Kug-oC-0SY" id="Ihi-Pj-tgi"/>
                         <outlet property="btnPlay" destination="hn5-Ol-QsV" id="Q2Y-BK-Mn9"/>
                         <outlet property="form" destination="aSn-pW-ISu" id="uJV-WW-VRO"/>
                         <outlet property="prepareToPlayView" destination="Pyq-JA-b64" id="Cqr-YZ-lUs"/>
                         <outlet property="previewView" destination="nUc-1B-aac" id="rNv-3q-DOI"/>
+                        <outlet property="redScoreLabel" destination="7Ru-V3-kEa" id="Je3-ne-Jus"/>
                         <outlet property="scoredLabel" destination="u8h-8Q-VAh" id="7j8-Ns-sdC"/>
                         <outlet property="scoredUIImageView" destination="UZ8-s8-hmV" id="Q3U-Xb-BYU"/>
                         <outlet property="scoredView" destination="qK1-82-3Fd" id="rGg-xz-hMk"/>
-                        <outlet property="txtBlueScore" destination="Kug-oC-0SY" id="Ihi-Pj-tgi"/>
-                        <outlet property="txtRedScore" destination="7Ru-V3-kEa" id="Je3-ne-Jus"/>
-                        <outlet property="txtTimer" destination="hcK-s0-Sy1" id="Ujm-sF-X5w"/>
-                        <outlet property="txtWelcome" destination="jSm-c9-5KF" id="7Qi-w6-yoc"/>
+                        <outlet property="welcomeLabel" destination="jSm-c9-5KF" id="7Qi-w6-yoc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
