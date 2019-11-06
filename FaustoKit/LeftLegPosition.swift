@@ -40,6 +40,7 @@ class LeftLegPosition : LegsPosition {
         
         let lLegToKneeSubcase = LegToKneePos( kneeTransform: lKneeTransform, legTransform: lLegTransform)
         let lKneeToFootCase = KneeToFootPos(kneeTransform: lKneeTransform, legTransform: lLegTransform, footTransform: lFootTransform, legToKneeSubcase: lLegToKneeSubcase)
+        
     }
     
         
