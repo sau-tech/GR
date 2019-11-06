@@ -1,7 +1,6 @@
 
 
 import UIKit
-import SpriteKit
 import ARKit
 import RealityKit
 import AVFoundation
@@ -16,6 +15,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     let characterOffset: SIMD3<Float> = [0, 0, 0] // Offset the character by one meter to the left
     let characterAnchor = AnchorEntity()
 
+    
+    // A tracked raycast which is used to place the character accurately
+    // in the scene wherever the user taps.
+    var placementRaycast: ARTrackedRaycast?
+    var tapPlacementAnchor: AnchorEntity?
+    
     var showRobot = true
 
     var model = Model.shared
@@ -78,11 +83,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
         }
-        
+
         // Run a body tracking configration.
         let configuration = ARBodyTrackingConfiguration()
         arView.session.run(configuration)
         
+        arView.scene.addAnchor(characterAnchor)
         
         // Asynchronously load the 3D character.
         var cancellable: AnyCancellable? = nil
@@ -102,7 +108,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
                 print("Error: Unable to load model as BodyTrackedEntity")
             }
         })
-        
         initScreen()
     }
 
@@ -122,12 +127,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         redScoreLabel.text = String(model.teams[0].points)
         blueScoreLabel.text = String(model.teams[1].points)
         
-        initCamera()
+//        initCamera()
         
     }
     
     func initCamera() {
-        
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .high
         
@@ -387,6 +391,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+
         for anchor in anchors {
             guard let bodyAnchor = anchor as? ARBodyAnchor else { continue }
 

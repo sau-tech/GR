@@ -10,6 +10,7 @@
 		425665CE236B07D10010D1C4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425665CC236B07D10010D1C4 /* Model.swift */; };
 		425665CF236B07D10010D1C4 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425665CD236B07D10010D1C4 /* Team.swift */; };
 		AF02D5F32373025F00FB3304 /* FaustoKit in Resources */ = {isa = PBXBuildFile; fileRef = AF02D5F22373025E00FB3304 /* FaustoKit */; };
+		AF02D5F623730A6C00FB3304 /* character in Resources */ = {isa = PBXBuildFile; fileRef = AF02D5F523730A6C00FB3304 /* character */; };
 		D410C2A22361E3E000C1973D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A12361E3E000C1973D /* AppDelegate.swift */; };
 		D410C2A42361E3E000C1973D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A32361E3E000C1973D /* SceneDelegate.swift */; };
 		D410C2A62361E3E000C1973D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A52361E3E000C1973D /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		425665CC236B07D10010D1C4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		425665CD236B07D10010D1C4 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		AF02D5F22373025E00FB3304 /* FaustoKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FaustoKit; sourceTree = "<group>"; };
+		AF02D5F523730A6C00FB3304 /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; path = character; sourceTree = "<group>"; };
 		D410C29E2361E3E000C1973D /* GetReady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetReady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D410C2A12361E3E000C1973D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D410C2A32361E3E000C1973D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		D410C2952361E3E000C1973D = {
 			isa = PBXGroup;
 			children = (
+				AF02D5F523730A6C00FB3304 /* character */,
 				AF02D5F22373025E00FB3304 /* FaustoKit */,
 				D410C2A02361E3E000C1973D /* GetReady */,
 				D410C2B923631C0A00C1973D /* View */,
@@ -199,6 +202,7 @@
 				AF02D5F32373025F00FB3304 /* FaustoKit in Resources */,
 				D45BCEEE23632DE500792A89 /* Alwyn New Rounded Bold.otf in Resources */,
 				D410C2B12361E3E100C1973D /* LaunchScreen.storyboard in Resources */,
+				AF02D5F623730A6C00FB3304 /* character in Resources */,
 				D410C2AE2361E3E100C1973D /* Assets.xcassets in Resources */,
 				D410C2A92361E3E000C1973D /* Main.storyboard in Resources */,
 			);
