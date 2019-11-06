@@ -47,3 +47,9 @@ class BodyPart {
 }
 
 
+extension BodyTrackedEntity {
+    func jointName(forPath path: String) -> ARSkeleton.JointName {
+        let splitPath = path.split(separator: "/")
+        return ARSkeleton.JointName(rawValue: String(splitPath[splitPath.count - 1]))
+    }
+}

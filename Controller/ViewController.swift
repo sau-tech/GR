@@ -25,8 +25,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
 
     var model = Model.shared
     var timer = Timer()
-    
-//    let faustoKit = FaustoKit()
+    let faustoKit = FaustoKit()
     // Total time for a phase
     let totalTime = TimeInterval(10.0)
     // Points needed for winning
@@ -420,7 +419,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             
             if let character = character {
             
-//                faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
+                faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
                 
             }
         }
