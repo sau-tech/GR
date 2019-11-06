@@ -5,19 +5,23 @@ import SpriteKit
 import ARKit
 import AVFoundation
 
-class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     var model = Model.shared
     var timer = Timer()
     
+    // Total time for a phase
+    let totalTime = TimeInterval(10.0)
     // Points needed for winning
     let finishLine = 10
     // Points got when a team win a phase
     let pointsForPhase = 3
     // Precision for judging the pose [0.0 ~ 1.0]
     let precision : Double = 0.85
-    // Total time for a phase
-    let totalTime: TimeInterval = 3.0
+    // Seconds needed to stay in the pose
+    let secondsToPose = TimeInterval(2.0)
+    
+    let timeFrame = 0.05
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
@@ -32,11 +36,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     @IBOutlet weak var scoredLabel: UILabel!
     @IBOutlet weak var scoredUIImageView: UIImageView!
     
-
+    @IBOutlet weak var teamGetReadyView: UIView!
+    
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var imagePicker: UIImagePickerController!
+    
+    @IBOutlet var allScreenTapGesture: UITapGestureRecognizer!
     
     enum ImageSource {
         case photoLibrary
@@ -45,7 +52,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        allScreenTapGesture.delegate = self
     }
     
     
@@ -57,12 +64,13 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
 
     override func viewWillAppear(_ animated: Bool) {
         
-        prepareToPlayView.isHidden = false
-        prepareToPlayView.alpha = 1
-        btnPlay.isEnabled = true
-        
+        showGetReady()
         super.viewWillAppear(animated)
         
+    }
+    
+    @IBAction func allScreenTapGestureAction(_ sender: UITapGestureRecognizer) {
+        hideScoredView()
     }
     
     func initScreen(){
@@ -104,13 +112,55 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     func startTimer(segundos: TimeInterval) {
         model.time = segundos
         refreshTimer()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: timeFrame, repeats: true, block: { _ in
             self.passoTimer()
         })
     }
     
     @IBAction func playButton(_ sender: Any) {
+        hideGetReady()
+        print("tabom")
         startPhase()
+    }
+    
+    @IBAction func getReadyTeamPlayButton(_ sender: Any) {
+        hideGetReadyTeam()
+        startPhase()
+    }
+    
+    func hideGetReady(){
+        prepareToPlayView.isHidden = true
+        prepareToPlayView.alpha = 0.0
+        form.isHidden = true
+        form.alpha = 0.0
+    }
+    
+    func showGetReady(){
+        prepareToPlayView.isHidden = false
+        prepareToPlayView.alpha = 1.0
+        form.isHidden = false
+        form.alpha = 1.0
+    }
+    
+    func hideGetReadyTeam(){
+        teamGetReadyView.isHidden = true
+        teamGetReadyView.alpha = 0.0
+        
+    }
+    
+    func showGetReadyTeam(){
+        teamGetReadyView.isHidden = false
+        teamGetReadyView.alpha = 1.0
+    }
+    
+    func hideScoredView(){
+        scoredView.isHidden = true
+        scoredView.alpha = 0.0
+    }
+    
+    func showScoredView(){
+        scoredView.isHidden = false
+        scoredView.alpha = 1.0
     }
     
     func startPhase() {
@@ -121,24 +171,37 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         // Team that starts
         if model.actualTeam == -1 {
             model.actualTeam = 0
-        } else if model.actualTeam == 0 {
+        }
+        // Change the team
+        else if model.actualTeam == 0 {
             model.actualTeam = 1
         } else {
             model.actualTeam = 0
         }
         
-        startTimer(segundos: totalTime)
+        if !timer.isValid {
+            startTimer(segundos: totalTime)
+        }
     }
     
-    // A cada 1 segundo, executa:
+    // For each timeFrame executes:
     func passoTimer(){
         
         if model.time > 0 {
-            model.time -= 1
+            model.time -= timeFrame
             refreshTimer()
-        } else {
-            timeIsUp()
+            if model.time <= 0 {
+                timeIsUp()
+            }
         }
+        
+        if judgePose() >= precision {
+            model.secondsInPose += timeFrame
+            if model.secondsInPose >= secondsToPose {
+                timeIsUp()
+            }
+        }
+        
     }
     
     func timeIsUp(){
@@ -146,35 +209,41 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         // Stop the timer
         timer.invalidate()
         
-        attachPoints()
-        refreshScoreLabels()
+        if judgePose() >= precision  || model.secondsInPose >= secondsToPose {
+            prize()
+        }
         
         // If the team haven't made any points
         if model.actualPoints == 0 {
             showLosed()
-        }
-        // The current team won!
-        else if model.teams[model.actualTeam].points > finishLine {
-            callVictory()
         }
         // If somebody has scored but haven't won.
         else {
             showScored()
         }
         
+        // Both of the teams played and some team won!
+        if model.actualTeam == 1, (model.teams[0].points > finishLine || model.teams[1].points > finishLine) {
+            callVictory()
+        }
     }
     
+    // TODO: PUT THE FRAMEWORK HERE!
     func judgePose() -> Double {
         var score : Double
-        score = 1.0
+        score = Double.random(in: 0.5 ..< 1.0)
+        print(model.secondsInPose)
         return score
     }
     
+    func prize(){
+        attachPoints()
+        refreshScoreLabels()
+    }
+    
     func attachPoints(){
-        if judgePose() > precision {
-            model.actualPoints = pointsForPhase
-            model.teams[model.actualTeam].points += pointsForPhase
-        }
+        model.actualPoints = pointsForPhase
+        model.teams[model.actualTeam].points += pointsForPhase
     }
     
     // Set the team infos and show the view
@@ -183,8 +252,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
         scoredLabel.text = "THE \(ACTUALTEAM()) TEAM SCORED!"
         scoredUIImageView.image = UIImage(named: "\(actualTeam())score")
-
-        scoredView.alpha = 1.0
+        
+        showScoredView()
     }
     
     // Set the team infos and show the view
@@ -193,8 +262,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
         scoredLabel.text = "THE \(ACTUALTEAM()) TEAM LOSE!"
         scoredUIImageView.image = UIImage(named: "\(actualTeam())lose")
-
-        scoredView.alpha = 1.0
+        
+        showScoredView()
         
     }
     
@@ -216,6 +285,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
         if model.teams[0].points == model.teams[1].points {
             // TODO: EMPATE! O QUE FAZER?
+            startPhase()
         }
         // RED won
         else if model.teams[0].points >= finishLine {
@@ -237,22 +307,17 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     func refreshTimerLabels() {
-        TimerLabel.text = String(Int(model.time))
+        if model.time >= 10.0 {
+            TimerLabel.text = String(Int(model.time))
+        } else {
+            TimerLabel.text = NSString(format: "%.1f", abs(Double(model.time))) as String
+        }
     }
     
     func refreshScoreLabels() {
         redScoreLabel.text = String(model.teams[0].points)
         blueScoreLabel.text = String(model.teams[1].points)
     }
-    
-    @IBAction func welcome(_ sender: Any) {
-        prepareToPlayView.isHidden = true
-        prepareToPlayView.alpha = 1
-        btnPlay.isEnabled = false
-        form.isHidden = false
-        form.alpha = 1
-    }
-    
     
     func setupLivePreview() {
         
