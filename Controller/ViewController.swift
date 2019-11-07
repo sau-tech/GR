@@ -287,6 +287,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         var score : Double
         score = Double.random(in: 0.5 ..< 1.0)
         print(model.secondsInPose)
+        //
         return score
     }
     
