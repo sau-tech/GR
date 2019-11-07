@@ -126,8 +126,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         redScoreLabel.text = String(model.teams[0].points)
         blueScoreLabel.text = String(model.teams[1].points)
         
-//        initCamera()
-        
     }
     
     func initCamera() {
@@ -166,7 +164,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     @IBAction func playButton(_ sender: Any) {
         hideGetReady()
-        print("tabom")
         startPhase()
     }
     
@@ -253,6 +250,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func timeIsUp(){
         
+        // Some team won
+        var winner = false
+        
         // Stop the timer
         timer.invalidate()
         
@@ -260,19 +260,26 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             prize()
         }
         
-        // If the team haven't made any points
-        if model.actualPoints == 0 {
-            showLosed()
-        }
-        // If somebody has scored but haven't won.
-        else {
-            showScored()
+        // Both of the teams played and some team won and it isn't a tie!
+        if model.actualTeam == 1, (model.teams[0].points > finishLine || model.teams[1].points > finishLine) && model.teams[0].points != model.teams[1].points {
+            callVictory()
+            winner = true
         }
         
-        // Both of the teams played and some team won!
-        if model.actualTeam == 1, (model.teams[0].points > finishLine || model.teams[1].points > finishLine) {
-            callVictory()
+        if !winner {
+            // If the team haven't made any points
+            if model.actualPoints == 0 {
+                showLosed()
+            }
+            // If somebody has scored but haven't won.
+            else if model.teams[0].points != model.teams[1].points {
+                showScored()
+            }
+            else {
+                showTie()
+            }
         }
+        
     }
     
     // TODO: PUT THE FRAMEWORK HERE!
@@ -299,6 +306,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
         scoredLabel.text = "THE \(ACTUALTEAM()) TEAM SCORED!"
         scoredUIImageView.image = UIImage(named: "\(actualTeam())score")
+        
+        showScoredView()
+    }
+    
+    func showTie(){
+        
+        scoredLabel.text = "IT'S A TIE!"
+        scoredUIImageView.image = UIImage(named: "tie")
         
         showScoredView()
     }

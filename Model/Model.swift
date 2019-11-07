@@ -19,5 +19,5 @@ class Model {
     var secondsInPose = TimeInterval(0)
     
     // The Team[0] is the red team and the Team [1] is the blue one.
-    var teams : [Team] = [Team(pts: 7), Team(pts: 7)]
+    var teams : [Team] = [Team(), Team()]
 }
