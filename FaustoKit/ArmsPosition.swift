@@ -10,6 +10,11 @@ import Foundation
 import ARKit
 import RealityKit
 
+struct armCases {
+    let ArmCase : ShoulderToForearmSubcase
+    let HandCase: ForearmToHandSubcase
+}
+
 public enum ShoulderToForearmCase {
     case up
     case down

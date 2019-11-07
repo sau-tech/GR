@@ -35,13 +35,13 @@ class RightArmPosition: ArmsPosition {
     
 
     
-    func rArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) {
+    func rArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> armCases{
         
         let rForearmSubcase = RightShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, rHandTransform: rHandTransform, rForearmTransform: rForearmTransform, rShoulderTransform: rShoulderTransform)
         let rHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmSubcase: rForearmSubcase, HandTransform: rHandTransform, ForearmTransform: rForearmTransform, ShoulderTransform: rShoulderTransform)
         
-        print("right Arm: ", rForearmSubcase, ", ", rHandCase )
-        
+//        print("right Arm: ", rForearmSubcase, ", ", rHandCase )
+        return armCases(ArmCase: rForearmSubcase, HandCase: rHandCase)
     }
     
     

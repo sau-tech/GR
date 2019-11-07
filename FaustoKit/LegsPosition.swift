@@ -9,6 +9,12 @@
 import ARKit
 import RealityKit
 
+struct legCases {
+    let legCase : LegToKneeSubcase
+    let kneeCase: KneeToFootCase
+}
+
+
 public enum LegToKneeCase {
     case straight //perna reta
     case halfOpen //perna meio-aberta

@@ -35,11 +35,12 @@ class LeftArmPosition: ArmsPosition {
         
     }
     
-    func lArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor){
+    func lArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> armCases{
         let lForearmSubcase = LeftShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, lHandTransform: lHandTransform, lForearmTransform: lForearmTransform, lShoulderTransform: lShoulderTransform)
         let lHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmSubcase: lForearmSubcase, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform)
-        print("Left Arm: ", lForearmSubcase, ", ", lHandCase )
-    
+//        print("Left Arm: ", lForearmSubcase, ", ", lHandCase )
+        return armCases(ArmCase: lForearmSubcase, HandCase: lHandCase)
+
     }
 
     
