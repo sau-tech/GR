@@ -36,7 +36,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     // Precision for judging the pose [0.0 ~ 1.0]
     let precision : Double = 0.85
     // Seconds needed to stay in the pose
-    let secondsToPose = TimeInterval(2.0)
+    let secondsToPose = TimeInterval(1.5)
     
     let timeFrame = 0.05
     
@@ -45,7 +45,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     @IBOutlet weak var redScoreLabel: UILabel!
     @IBOutlet weak var blueScoreLabel: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
+    
     @IBOutlet weak var form: UIImageView!
+    var formNow : Int!
+    
     @IBOutlet weak var peopleCelebratingImgView: UIImageView!
     
     @IBOutlet weak var prepareToPlayView: UIView!
@@ -253,7 +256,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     func startPhase() {
+        formNow = Int.random(in: 0 ..< 6)
+        print("nha")
+        let poseImg : UIImage? = Forms.shared.Poses[formNow].image
         
+        form.alpha = 1
+        form.image = poseImg
         model.winner = -1
         model.secondsInPose = TimeInterval(0)
         
@@ -313,7 +321,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         }
         
         // Both of the teams played and some team won and it isn't a tie!
-        if model.actualTeam == 1, (model.teams[0].points > finishLine || model.teams[1].points > finishLine) && model.teams[0].points != model.teams[1].points {
+        if model.actualTeam == 1, (model.teams[formNow].points > finishLine || model.teams[1].points > finishLine) && model.teams[0].points != model.teams[1].points {
             callVictory()
             winner = true
         }

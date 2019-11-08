@@ -28,6 +28,11 @@ class Forms {
     static var shared = Forms()
 
     let Poses = [
-        Pose(image: UIImage(named: "form")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
+        Pose(image: UIImage(named: "pose 1")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
+        Pose(image: UIImage(named: "pose 2")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
+        Pose(image: UIImage(named: "pose 3")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
+        Pose(image: UIImage(named: "pose 4")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
+        Pose(image: UIImage(named: "pose 5")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
+        Pose(image: UIImage(named: "pose 6")!, leftArmCase: .down, leftHandCase: .retoOutstretched, rightArmCase: .up, rightHandCase: .retoOutstretched, leftLegCase: .straight, leftKneeCase: .straight, rightLegCase: .straight, rightKneeCase: .straight),
     ]
 }
