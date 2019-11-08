@@ -25,7 +25,7 @@ struct PositionCases {
 // interface de comunicação com o resto do programa (facade pattern)
 public class FaustoKit {
     
-    func BodyTrackingPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) {
+    func BodyTrackingPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> PositionCases {
         let leftArm = LeftArmPosition(character: character, bodyAnchor: bodyAnchor)
         let rightArm = RightArmPosition(character: character, bodyAnchor: bodyAnchor)
         

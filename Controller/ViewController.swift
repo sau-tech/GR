@@ -14,12 +14,13 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     var character: BodyTrackedEntity?
     let characterOffset: SIMD3<Float> = [0, 0, 0] // Offset the character by one meter to the left
     let characterAnchor = AnchorEntity()
-
+    
+    var bodyPosition1 : PositionCases!
     
     // A tracked raycast which is used to place the character accurately
     // in the scene wherever the user taps.
     var placementRaycast: ARTrackedRaycast?
-    var tapPlacementAnchor: AnchorEntity?
+    var tapPlacemwentAnchor: AnchorEntity?
     
     var showRobot = true
 
@@ -286,8 +287,21 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     func judgePose() -> Double {
         var score : Double
         score = Double.random(in: 0.5 ..< 1.0)
-        print(model.secondsInPose)
-        //
+//        print(model.secondsInPose)
+        let forms = Forms.shared
+        
+        if forms.Poses[0].leftArmCase == bodyPosition1.leftArmCase &&
+            forms.Poses[0].leftHandCase == bodyPosition1.leftHandCase &&
+            forms.Poses[0].leftKneeCase == bodyPosition1.leftKneeCase &&
+            forms.Poses[0].leftLegCase == bodyPosition1.leftLegCase &&
+            forms.Poses[0].rightArmCase == bodyPosition1.rightArmCase &&
+            forms.Poses[0].rightHandCase == bodyPosition1.rightHandCase &&
+            forms.Poses[0].rightKneeCase == bodyPosition1.rightKneeCase &&
+            forms.Poses[0].rightLegCase == bodyPosition1.rightLegCase {
+            
+            print("certo mizeravi")
+        }else { print(bodyPosition1)}
+//            print(bodyPosition1)
         return score
     }
     
@@ -435,7 +449,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             
             if let character = character {
             
-                faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
+                bodyPosition1 = faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
                 
             }
         }

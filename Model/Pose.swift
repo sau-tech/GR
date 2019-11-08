@@ -16,16 +16,18 @@ struct Pose {
     let rightArmCase : ShoulderToForearmSubcase
     let rightHandCase: ForearmToHandSubcase
     
-    let leftLegCase : ShoulderToForearmSubcase
-    let leftKneeCase: ForearmToHandSubcase
+    let leftLegCase : LegToKneeSubcase
+    let leftKneeCase: KneeToFootCase
     
-    let rightLegCase : ShoulderToForearmSubcase
-    let rightKneeCase: ForearmToHandSubcase
+    let rightLegCase : LegToKneeSubcase
+    let rightKneeCase: KneeToFootCase
 }
 
 
 class Forms {
+    static var shared = Forms()
+
     let Poses = [
-        Pose(image: UIImage(named: "form")!, leftArmCase: .downStraight, leftHandCase: .retoOutstretched, rightArmCase: .upStraight, rightHandCase: .retoOutstretched, leftLegCase: .reto, leftKneeCase: .retoOutstretched, rightLegCase: .reto, rightKneeCase: .retoOutstretched)
+        Pose(image: UIImage(named: "form")!, leftArmCase: .downBack, leftHandCase: .retoOutstretched, rightArmCase: .upStraight, rightHandCase: .retoOutstretched, leftLegCase: .straightReto, leftKneeCase: .straight, rightLegCase: .straightReto, rightKneeCase: .straight)
     ]
 }

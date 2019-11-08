@@ -61,8 +61,9 @@ class LegsPosition  {
         let vectorLegToKnee = bodyPart.vector(joint1: kneeTransform, joint2: legTransform)
 
         if legToKneeCase == .straight {
-            if vectorLegToKnee.z < -0.05 { return .straightBack }
-            else {return .straightReto }
+//            if vectorLegToKnee.z < -0.05 { return .straightBack }
+//            else {return .straightReto }
+            return .straightReto
         } else if legToKneeCase == .halfOpen{
             if vectorLegToKnee.z < 0.05 { return .halfOpenReto}
             else if vectorLegToKnee.z < 0.15 { return .halfOpenMiddleFront}
