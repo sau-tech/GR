@@ -18,6 +18,7 @@
 		AF02D60423730C8600FB3304 /* RightArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FD23730C8600FB3304 /* RightArmPosition.swift */; };
 		AF02D60523730C8600FB3304 /* LegsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FB23730C8600FB3304 /* LegsPosition.swift */; };
 		AF02D60623730C8600FB3304 /* LeftArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5F823730C8500FB3304 /* LeftArmPosition.swift */; };
+		AF62250A2374742100011DF4 /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6225092374742100011DF4 /* Pose.swift */; };
 		D410C2A22361E3E000C1973D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A12361E3E000C1973D /* AppDelegate.swift */; };
 		D410C2A42361E3E000C1973D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A32361E3E000C1973D /* SceneDelegate.swift */; };
 		D410C2A62361E3E000C1973D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A52361E3E000C1973D /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		AF02D5FC23730C8600FB3304 /* LeftLegPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftLegPosition.swift; sourceTree = "<group>"; };
 		AF02D5FD23730C8600FB3304 /* RightArmPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArmPosition.swift; sourceTree = "<group>"; };
 		AF02D5FE23730C8600FB3304 /* FaustoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaustoKit.swift; sourceTree = "<group>"; };
+		AF6225092374742100011DF4 /* Pose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
 		D410C29E2361E3E000C1973D /* GetReady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetReady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D410C2A12361E3E000C1973D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D410C2A32361E3E000C1973D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				425665CC236B07D10010D1C4 /* Model.swift */,
 				425665CD236B07D10010D1C4 /* Team.swift */,
+				AF6225092374742100011DF4 /* Pose.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				AF02D60023730C8600FB3304 /* LeftLegPosition.swift in Sources */,
 				D4F992302369BFBF002C5312 /* PrintExtension.swift in Sources */,
 				425665CF236B07D10010D1C4 /* Team.swift in Sources */,
+				AF62250A2374742100011DF4 /* Pose.swift in Sources */,
 				AF02D60123730C8600FB3304 /* FaustoKit.swift in Sources */,
 				D4F992342369CBEC002C5312 /* Slide.swift in Sources */,
 			);
@@ -405,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TYH4Y6Q3X5;
+				DEVELOPMENT_TEAM = Z8MNRFXXFD;
 				INFOPLIST_FILE = GetReady/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,7 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TYH4Y6Q3X5;
+				DEVELOPMENT_TEAM = Z8MNRFXXFD;
 				INFOPLIST_FILE = GetReady/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

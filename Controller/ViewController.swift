@@ -14,14 +14,17 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     var character: BodyTrackedEntity?
     let characterOffset: SIMD3<Float> = [0, 0, 0] // Offset the character by one meter to the left
     let characterAnchor = AnchorEntity()
-
+    
+    var bodyPosition1 : PositionCases!
     
     // A tracked raycast which is used to place the character accurately
     // in the scene wherever the user taps.
     var placementRaycast: ARTrackedRaycast?
-    var tapPlacementAnchor: AnchorEntity?
+    var tapPlacemwentAnchor: AnchorEntity?
     
     var showRobot = true
+    
+    var startTracking = false
 
     var model = Model.shared
     var timer = Timer()
@@ -35,7 +38,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     // Precision for judging the pose [0.0 ~ 1.0]
     let precision : Double = 0.85
     // Seconds needed to stay in the pose
-    let secondsToPose = TimeInterval(2.0)
+    let secondsToPose = TimeInterval(1.0)
     
     let timeFrame = 0.05
     
@@ -296,8 +299,24 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     func judgePose() -> Double {
         var score : Double
         score = Double.random(in: 0.5 ..< 1.0)
-        print(model.secondsInPose)
-        return score
+//        print(model.secondsInPose)
+        let forms = Forms.shared
+        if startTracking {
+            if forms.Poses[0].leftArmCase == bodyPosition1.leftArmCase &&
+                forms.Poses[0].leftHandCase == bodyPosition1.leftHandCase &&
+                forms.Poses[0].leftKneeCase == bodyPosition1.leftKneeCase &&
+                forms.Poses[0].leftLegCase == bodyPosition1.leftLegCase &&
+                forms.Poses[0].rightArmCase == bodyPosition1.rightArmCase &&
+                forms.Poses[0].rightHandCase == bodyPosition1.rightHandCase &&
+                forms.Poses[0].rightKneeCase == bodyPosition1.rightKneeCase &&
+                forms.Poses[0].rightLegCase == bodyPosition1.rightLegCase {
+                print("certo")
+                return 1
+            }else { print("ta errado"); return 0}
+            //            print(bodyPosition1)
+        }
+        return 0
+//  return score
     }
     
     func prize(){
@@ -406,7 +425,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             }
         }
     }
-    
     @IBAction func goToTutorial(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "tutorial") as? TutorialViewController {
                    self.present(vc, animated:false, completion:nil)
@@ -442,9 +460,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
                 
             }
             
-            if let character = character {
-            
-                faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
+            if let character = character{
+                startTracking = true
+                bodyPosition1 = faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
                 
             }
         }

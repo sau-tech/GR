@@ -35,16 +35,17 @@ class LeftArmPosition: ArmsPosition {
         
     }
     
-    func lArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor){
-        let lForearmSubcase = LeftShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, lHandTransform: lHandTransform, lForearmTransform: lForearmTransform, lShoulderTransform: lShoulderTransform)
-        let lHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmSubcase: lForearmSubcase, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform)
-        print("Left Arm: ", lForearmSubcase, ", ", lHandCase )
-    
+    func lArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> armCases{
+        let lForearmCase = LeftShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, lHandTransform: lHandTransform, lForearmTransform: lForearmTransform, lShoulderTransform: lShoulderTransform)
+        let lHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmCase: lForearmCase, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform)
+//        print("Left Arm: ", lForearmSubcase, ", ", lHandCase )
+        return armCases(ArmCase: lForearmCase, HandCase: lHandCase)
+
     }
 
     
 /// posição do  cotovelo em relaçao ao ombro pra saber onde ele está
-    func LeftShoulderToForearmPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, lHandTransform: simd_float4, lForearmTransform: simd_float4, lShoulderTransform: simd_float4) -> ShoulderToForearmSubcase {
+    func LeftShoulderToForearmPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, lHandTransform: simd_float4, lForearmTransform: simd_float4, lShoulderTransform: simd_float4) -> ShoulderToForearmCase {
         let leftForearmCase = ShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform)
         
         return ShoulderToForearmPosZ(character: character, bodyAnchor: bodyAnchor, forearmCase: leftForearmCase, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform)

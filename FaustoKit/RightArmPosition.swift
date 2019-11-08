@@ -35,18 +35,18 @@ class RightArmPosition: ArmsPosition {
     
 
     
-    func rArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) {
+    func rArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> armCases{
         
-        let rForearmSubcase = RightShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, rHandTransform: rHandTransform, rForearmTransform: rForearmTransform, rShoulderTransform: rShoulderTransform)
-        let rHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmSubcase: rForearmSubcase, HandTransform: rHandTransform, ForearmTransform: rForearmTransform, ShoulderTransform: rShoulderTransform)
+        let rForearmCase = RightShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, rHandTransform: rHandTransform, rForearmTransform: rForearmTransform, rShoulderTransform: rShoulderTransform)
+        let rHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmCase: rForearmCase, HandTransform: rHandTransform, ForearmTransform: rForearmTransform, ShoulderTransform: rShoulderTransform)
         
-        print("right Arm: ", rForearmSubcase, ", ", rHandCase )
-        
+//        print("right Arm: ", rForearmSubcase, ", ", rHandCase )
+        return armCases(ArmCase: rForearmCase, HandCase: rHandCase)
     }
     
     
     /// posição do  cotovelo em relaçao ao ombro pra saber onde ele está
-    func RightShoulderToForearmPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, rHandTransform: simd_float4, rForearmTransform: simd_float4, rShoulderTransform: simd_float4) -> ShoulderToForearmSubcase {
+    func RightShoulderToForearmPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, rHandTransform: simd_float4, rForearmTransform: simd_float4, rShoulderTransform: simd_float4) -> ShoulderToForearmCase {
         let rightForearmCase = ShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, HandTransform: rHandTransform, ForearmTransform: rForearmTransform, ShoulderTransform: rShoulderTransform)
         
         return ShoulderToForearmPosZ(character: character, bodyAnchor: bodyAnchor, forearmCase: rightForearmCase, HandTransform: rHandTransform, ForearmTransform: rForearmTransform, ShoulderTransform: rShoulderTransform)

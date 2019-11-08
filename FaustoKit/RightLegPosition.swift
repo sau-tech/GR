@@ -40,10 +40,12 @@ class RightLegPosition : LegsPosition {
 //        let anguloJD = angle(vector1: vectorRightLegToKnee, vector2: vectorRightLegFoot)
     }
     
-    func rLegPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor){
+    func rLegPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> legCases{
 
-        let rLegToKneeSubcase = LegToKneePos( kneeTransform: rKneeTransform, legTransform: rLegTransform)
-        let lKneeToFootCase = KneeToFootPos(kneeTransform: rKneeTransform, legTransform: rLegTransform, footTransform: rFootTransform, legToKneeSubcase: rLegToKneeSubcase)
-        
+        let rLegToKneeCase = LegToKneePos( kneeTransform: rKneeTransform, legTransform: rLegTransform)
+        let rKneeToFootCase = KneeToFootPos(kneeTransform: rKneeTransform, legTransform: rLegTransform, footTransform: rFootTransform, legToKneeSubcase: rLegToKneeCase)
+     
+        return legCases(legCase: rLegToKneeCase, kneeCase: rKneeToFootCase)
+
     }
 }

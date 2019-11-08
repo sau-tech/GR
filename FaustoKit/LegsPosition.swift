@@ -9,6 +9,12 @@
 import ARKit
 import RealityKit
 
+struct legCases {
+    let legCase : LegToKneeCase
+    let kneeCase: KneeToFootCase
+}
+
+
 public enum LegToKneeCase {
     case straight //perna reta
     case halfOpen //perna meio-aberta
@@ -39,7 +45,7 @@ public enum KneeToFootCase {
 class LegsPosition  {
     let bodyPart = BodyPart()
     
-    func LegToKneePos( kneeTransform: simd_float4, legTransform: simd_float4) -> LegToKneeSubcase {
+    func LegToKneePos( kneeTransform: simd_float4, legTransform: simd_float4) -> LegToKneeCase {
         let vectorLegToKnee = bodyPart.vector(joint1: kneeTransform, joint2: legTransform)
         let legToKneeCase: LegToKneeCase
         
@@ -51,24 +57,28 @@ class LegsPosition  {
         return LegToKneePosZ(kneeTransform: kneeTransform, legTransform: legTransform, legToKneeCase: legToKneeCase )
     }
     
-    func LegToKneePosZ(kneeTransform: simd_float4, legTransform: simd_float4, legToKneeCase : LegToKneeCase) -> LegToKneeSubcase {
+    func LegToKneePosZ(kneeTransform: simd_float4, legTransform: simd_float4, legToKneeCase : LegToKneeCase) -> LegToKneeCase {
         let vectorLegToKnee = bodyPart.vector(joint1: kneeTransform, joint2: legTransform)
 
         if legToKneeCase == .straight {
-            if vectorLegToKnee.z < -0.05 { return .straightBack }
-            else {return .straightReto }
+//            if vectorLegToKnee.z < -0.05 { return .straightBack }
+//            else {return .straightReto }
+//            return .straightReto
+            return .straight
         } else if legToKneeCase == .halfOpen{
-            if vectorLegToKnee.z < 0.05 { return .halfOpenReto}
-            else if vectorLegToKnee.z < 0.15 { return .halfOpenMiddleFront}
-            else {return .halfOpenFront}
+//            if vectorLegToKnee.z < 0.05 { return .halfOpenReto}
+//            else if vectorLegToKnee.z < 0.15 { return .halfOpenMiddleFront}
+//            else {return .halfOpenFront}
+            return .halfOpen
         } else {
-            if vectorLegToKnee.z < 0.05 { return .openReto}
-            else if vectorLegToKnee.z < 0.15 { return .openMiddleFront}
-            else { return .openFront}
+//            if vectorLegToKnee.z < 0.05 { return .openReto}
+//            else if vectorLegToKnee.z < 0.15 { return .openMiddleFront}
+//            else { return .openFront}
+            return .Open
         }
     }
     
-    func KneeToFootPos(kneeTransform: simd_float4, legTransform: simd_float4, footTransform: simd_float4, legToKneeSubcase: LegToKneeSubcase ) -> KneeToFootCase {
+    func KneeToFootPos(kneeTransform: simd_float4, legTransform: simd_float4, footTransform: simd_float4, legToKneeSubcase: LegToKneeCase ) -> KneeToFootCase {
 
         let vectorLegToKnee = bodyPart.vector(joint1: kneeTransform, joint2: legTransform)
         let vectorKneeToFoot = bodyPart.vector(joint1: legTransform, joint2: footTransform)

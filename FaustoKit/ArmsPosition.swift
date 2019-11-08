@@ -10,6 +10,11 @@ import Foundation
 import ARKit
 import RealityKit
 
+struct armCases {
+    let ArmCase : ShoulderToForearmCase
+    let HandCase: ForearmToHandSubcase
+}
+
 public enum ShoulderToForearmCase {
     case up
     case down
@@ -70,7 +75,7 @@ class ArmsPosition  {
         }
     
     /// posição da mão em relaçao ao cotovelo pra saber onde ela está
-        func ForearmToHandPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, forearmSubcase: ShoulderToForearmSubcase, HandTransform: simd_float4, ForearmTransform: simd_float4, ShoulderTransform: simd_float4) -> ForearmToHandSubcase {
+        func ForearmToHandPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, forearmCase: ShoulderToForearmCase, HandTransform: simd_float4, ForearmTransform: simd_float4, ShoulderTransform: simd_float4) -> ForearmToHandSubcase {
 
             let handForearmVector = bodyPart.vector(joint1: ForearmTransform, joint2: HandTransform)
             let shoulderForearmVector  = bodyPart.vector(joint1: ForearmTransform, joint2: ShoulderTransform)
@@ -96,34 +101,37 @@ class ArmsPosition  {
         }
     
     /// chamada em ShoulderToForearmPos, compara o eixo z pra classificar o cotovelo
-    func ShoulderToForearmPosZ(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, forearmCase: ShoulderToForearmCase, HandTransform: simd_float4, ForearmTransform: simd_float4, ShoulderTransform: simd_float4) -> ShoulderToForearmSubcase {
+    func ShoulderToForearmPosZ(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor, forearmCase: ShoulderToForearmCase, HandTransform: simd_float4, ForearmTransform: simd_float4, ShoulderTransform: simd_float4) -> ShoulderToForearmCase {
         let forearmShoulderVector  = bodyPart.vector(joint1: ShoulderTransform, joint2: ForearmTransform)
         
         switch forearmCase {
         case .down:
-            if forearmShoulderVector.z < -0.05 {
-                return .downBack    //pra baixo pra tras
-            } else if forearmShoulderVector.z > 0.05 {
-                if forearmShoulderVector.z > 0.2 {return .downTotFront} else {return .downFront} //pra tras pra frente ou totalmente pra frente
-            } else {
-                return .downStraight //pra trás reto
-            }
+            return .down
+//            if forearmShoulderVector.z < -0.05 {
+//                return .downBack    //pra baixo pra tras
+//            } else if forearmShoulderVector.z > 0.05 {
+//                if forearmShoulderVector.z > 0.2 {return .downTotFront} else {return .downFront} //pra tras pra frente ou totalmente pra frente
+//            } else {
+//                return .downStraight //pra trás reto
+//            }
             
         case .up:
-            if forearmShoulderVector.z > 0.05 { //mais pra frente
-                if forearmShoulderVector.z > 0.2 {return .upTotFront} else {return .upFront}
-            } else {
-                return .upStraight //pra frente reto
-            }
+            return .up
+//            if forearmShoulderVector.z > 0.05 { //mais pra frente
+//                if forearmShoulderVector.z > 0.2 {return .upTotFront} else {return .upFront}
+//            } else {
+//                return .upStraight //pra frente reto
+//            }
             
         case .straight:
-            if forearmShoulderVector.z < -0.05 { //&& forearmCase != .up { //mais pra tras
-                return .retoBack        //reto pra tras
-            } else if forearmShoulderVector.z > 0.05 {
-                if forearmShoulderVector.z > 0.2 {return .retoTotFront} else {return .retoFrente}
-            } else {
-                return .reto
-            }
+            return .straight
+//            if forearmShoulderVector.z < -0.05 { //&& forearmCase != .up { //mais pra tras
+//                return .retoBack        //reto pra tras
+//            } else if forearmShoulderVector.z > 0.05 {
+//                if forearmShoulderVector.z > 0.2 {return .retoTotFront} else {return .retoFrente}
+//            } else {
+//                return .reto
+//            }
             
         }
 
