@@ -118,13 +118,22 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     @IBAction func allScreenTapGestureAction(_ sender: UITapGestureRecognizer) {
-        hideScoredView()
+        if !timer.isValid {
+            hideScoredView()
+        }
     }
     
     func initScreen(){
         
         redScoreLabel.text = String(model.teams[0].points)
         blueScoreLabel.text = String(model.teams[1].points)
+        
+        prepareToPlayView.layer.masksToBounds = true
+        prepareToPlayView.layer.cornerRadius = 50
+        scoredView.layer.masksToBounds = true
+        scoredView.layer.cornerRadius = 50
+        teamGetReadyView.layer.masksToBounds = true
+        teamGetReadyView.layer.cornerRadius = 50
         
     }
     
@@ -274,6 +283,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             // If somebody has scored but haven't won.
             else if model.teams[0].points != model.teams[1].points {
                 showScored()
+                showGetReadyTeam()
             }
             else {
                 showTie()

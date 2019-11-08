@@ -289,24 +289,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redwin" translatesAutoresizingMaskIntoConstraints="NO" id="vlN-xZ-Zam">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redwin" translatesAutoresizingMaskIntoConstraints="NO" id="vlN-xZ-Zam">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B83-1n-sxC">
-                                <rect key="frame" x="148" y="669" width="79" height="79"/>
+                                <rect key="frame" x="148" y="639" width="79" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="0el-iS-hXW"/>
                                     <constraint firstAttribute="width" secondItem="B83-1n-sxC" secondAttribute="height" multiplier="1:1" id="zGY-j7-hHQ"/>
                                 </constraints>
                                 <state key="normal" image="replay"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE RED TEAM WON!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qeg-Nw-okW">
+                                <rect key="frame" x="56.333333333333343" y="124" width="262.33333333333326" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="fIf-Yk-5kj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AlwynNewRounded-Bold" family="AlwynNewRounded-Bold" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all" translatesAutoresizingMaskIntoConstraints="NO" id="oDP-CS-2UN">
+                                <rect key="frame" x="67.666666666666686" y="374" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="JSO-U2-FM1"/>
+                                    <constraint firstAttribute="height" constant="128" id="dxY-Ed-n9I"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Qeg-Nw-okW" firstAttribute="width" secondItem="vlN-xZ-Zam" secondAttribute="width" multiplier="0.7" id="0pe-o3-rpm"/>
+                            <constraint firstItem="Qeg-Nw-okW" firstAttribute="centerX" secondItem="AX4-P4-UiR" secondAttribute="centerX" id="3jM-0H-Eef"/>
                             <constraint firstItem="vlN-xZ-Zam" firstAttribute="centerY" secondItem="AX4-P4-UiR" secondAttribute="centerY" id="4bH-SK-IK9"/>
                             <constraint firstItem="vlN-xZ-Zam" firstAttribute="centerX" secondItem="AX4-P4-UiR" secondAttribute="centerX" id="MY3-G0-3Dj"/>
                             <constraint firstItem="vlN-xZ-Zam" firstAttribute="height" secondItem="AX4-P4-UiR" secondAttribute="height" id="Moh-Zp-teE"/>
-                            <constraint firstItem="AX4-P4-UiR" firstAttribute="bottom" secondItem="B83-1n-sxC" secondAttribute="bottom" constant="30" id="Q6a-xv-JhS"/>
+                            <constraint firstItem="oDP-CS-2UN" firstAttribute="top" secondItem="Qeg-Nw-okW" secondAttribute="bottom" constant="50" id="PNS-gD-0aw"/>
+                            <constraint firstItem="AX4-P4-UiR" firstAttribute="bottom" secondItem="B83-1n-sxC" secondAttribute="bottom" constant="60" id="Q6a-xv-JhS"/>
+                            <constraint firstItem="oDP-CS-2UN" firstAttribute="centerX" secondItem="Qeg-Nw-okW" secondAttribute="centerX" id="RsC-GT-hWk"/>
+                            <constraint firstItem="Qeg-Nw-okW" firstAttribute="top" secondItem="vlN-xZ-Zam" secondAttribute="top" constant="80" id="Wzt-Va-7so"/>
                             <constraint firstItem="B83-1n-sxC" firstAttribute="centerX" secondItem="AX4-P4-UiR" secondAttribute="centerX" id="gYK-sj-wct"/>
                             <constraint firstItem="vlN-xZ-Zam" firstAttribute="width" secondItem="AX4-P4-UiR" secondAttribute="width" id="uOG-0B-uik"/>
                         </constraints>
@@ -319,10 +340,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOp-zl-swM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850.72463768115949" y="138.61607142857142"/>
+            <point key="canvasLocation" x="850.39999999999998" y="138.17733990147784"/>
         </scene>
     </scenes>
     <resources>
+        <image name="all" width="367.33334350585938" height="207"/>
         <image name="blue" width="365.66665649414062" height="582"/>
         <image name="blueTimer" width="412.66665649414062" height="158.33332824707031"/>
         <image name="form" width="319" height="621.33331298828125"/>
