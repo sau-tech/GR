@@ -28,6 +28,6 @@ class Forms {
     static var shared = Forms()
 
     let Poses = [
-        Pose(image: UIImage(named: "form")!, leftArmCase: .downBack, leftHandCase: .retoOutstretched, rightArmCase: .upStraight, rightHandCase: .retoOutstretched, leftLegCase: .straightReto, leftKneeCase: .straight, rightLegCase: .straightReto, rightKneeCase: .straight)
+        Pose(image: UIImage(named: "form")!, leftArmCase: .downStraight, leftHandCase: .retoOutstretched, rightArmCase: .upStraight, rightHandCase: .retoOutstretched, leftLegCase: .straightReto, leftKneeCase: .straight, rightLegCase: .straightReto, rightKneeCase: .straight),
     ]
 }
