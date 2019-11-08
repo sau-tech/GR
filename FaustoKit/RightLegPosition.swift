@@ -42,10 +42,10 @@ class RightLegPosition : LegsPosition {
     
     func rLegPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> legCases{
 
-        let rLegToKneeSubcase = LegToKneePos( kneeTransform: rKneeTransform, legTransform: rLegTransform)
-        let rKneeToFootCase = KneeToFootPos(kneeTransform: rKneeTransform, legTransform: rLegTransform, footTransform: rFootTransform, legToKneeSubcase: rLegToKneeSubcase)
+        let rLegToKneeCase = LegToKneePos( kneeTransform: rKneeTransform, legTransform: rLegTransform)
+        let rKneeToFootCase = KneeToFootPos(kneeTransform: rKneeTransform, legTransform: rLegTransform, footTransform: rFootTransform, legToKneeSubcase: rLegToKneeCase)
      
-        return legCases(legCase: rLegToKneeSubcase, kneeCase: rKneeToFootCase)
+        return legCases(legCase: rLegToKneeCase, kneeCase: rKneeToFootCase)
 
     }
 }

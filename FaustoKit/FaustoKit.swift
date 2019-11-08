@@ -10,16 +10,16 @@ import ARKit
 import RealityKit
 
 struct PositionCases {
-    let leftArmCase : ShoulderToForearmSubcase
+    let leftArmCase : ShoulderToForearmCase
     let leftHandCase: ForearmToHandSubcase
     
-    let rightArmCase : ShoulderToForearmSubcase
+    let rightArmCase : ShoulderToForearmCase
     let rightHandCase: ForearmToHandSubcase
     
-    let leftLegCase : LegToKneeSubcase
+    let leftLegCase : LegToKneeCase
     let leftKneeCase: KneeToFootCase
     
-    let rightLegCase : LegToKneeSubcase
+    let rightLegCase : LegToKneeCase
     let rightKneeCase: KneeToFootCase
 }
 // interface de comunicação com o resto do programa (facade pattern)
