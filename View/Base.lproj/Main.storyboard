@@ -71,8 +71,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="form" translatesAutoresizingMaskIntoConstraints="NO" id="aSn-pW-ISu">
-                                <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="440.66666666666674"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pose 1" translatesAutoresizingMaskIntoConstraints="NO" id="aSn-pW-ISu">
+                                <rect key="frame" x="7.6666666666666572" y="80.666666666666686" width="360" height="660.66666666666652"/>
                             </imageView>
                             <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyq-JA-b64" userLabel="YPlayGame">
                                 <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="440.66666666666674"/>
@@ -232,7 +232,7 @@
                             <constraint firstItem="gcR-gW-msa" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="CH7-0E-ijo"/>
                             <constraint firstItem="aSn-pW-ISu" firstAttribute="centerY" secondItem="Pyq-JA-b64" secondAttribute="centerY" id="D03-c0-Kxi"/>
                             <constraint firstItem="Kug-oC-0SY" firstAttribute="bottom" secondItem="pnc-dj-hW7" secondAttribute="bottom" constant="-18" id="EAF-4b-J50"/>
-                            <constraint firstItem="aSn-pW-ISu" firstAttribute="width" secondItem="Pyq-JA-b64" secondAttribute="width" id="GdK-sQ-AQ4"/>
+                            <constraint firstItem="aSn-pW-ISu" firstAttribute="width" secondItem="Pyq-JA-b64" secondAttribute="width" multiplier="1.2" id="GdK-sQ-AQ4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="nUc-1B-aac" secondAttribute="top" id="HPe-WV-Cj4"/>
                             <constraint firstItem="9SX-uc-29Z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Iv0-te-q1t"/>
                             <constraint firstItem="Pyq-JA-b64" firstAttribute="height" secondItem="plR-Og-omf" secondAttribute="height" id="Jch-2C-S4V"/>
@@ -241,7 +241,7 @@
                             <constraint firstItem="pnc-dj-hW7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LLU-bz-b2k"/>
                             <constraint firstItem="plR-Og-omf" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.6" id="M4i-bu-ol8"/>
                             <constraint firstItem="gcR-gW-msa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nyl-z4-sMa"/>
-                            <constraint firstItem="aSn-pW-ISu" firstAttribute="height" secondItem="Pyq-JA-b64" secondAttribute="height" id="Rcb-3S-Xbg"/>
+                            <constraint firstItem="aSn-pW-ISu" firstAttribute="height" secondItem="Pyq-JA-b64" secondAttribute="height" multiplier="1.5" id="Rcb-3S-Xbg"/>
                             <constraint firstItem="qK1-82-3Fd" firstAttribute="height" secondItem="plR-Og-omf" secondAttribute="height" id="TA9-6p-WsK"/>
                             <constraint firstItem="hcK-s0-Sy1" firstAttribute="leading" secondItem="gcR-gW-msa" secondAttribute="leading" id="UUj-8j-FDb"/>
                             <constraint firstItem="plR-Og-omf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VD6-x2-D3h"/>
@@ -366,8 +366,8 @@
         <image name="all" width="367.33334350585938" height="207"/>
         <image name="blue" width="365.66665649414062" height="582"/>
         <image name="blueTimer" width="412.66665649414062" height="158.33332824707031"/>
-        <image name="form" width="319" height="621.33331298828125"/>
         <image name="play" width="75.666664123535156" height="75.333335876464844"/>
+        <image name="pose 1" width="319.33334350585938" height="621.33331298828125"/>
         <image name="redscore" width="366" height="582"/>
         <image name="redwin" width="413.66665649414062" height="896"/>
         <image name="replay" width="78.666664123535156" height="78.666664123535156"/>
