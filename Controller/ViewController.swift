@@ -190,15 +190,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     func hideGetReady(){
         prepareToPlayView.isHidden = true
         prepareToPlayView.alpha = 0.0
-        form.isHidden = true
-        form.alpha = 0.0
     }
     
     func showGetReady(){
         prepareToPlayView.isHidden = false
         prepareToPlayView.alpha = 1.0
-        form.isHidden = false
-        form.alpha = 1.0
     }
     
     func hideGetReadyTeam(){
@@ -260,7 +256,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         print("nha")
         let poseImg : UIImage? = Forms.shared.Poses[formNow].image
         
-        form.alpha = 1
         form.image = poseImg
         model.winner = -1
         model.secondsInPose = TimeInterval(0)
