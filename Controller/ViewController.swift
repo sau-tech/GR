@@ -40,6 +40,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     let timeFrame = 0.05
     
+    @IBOutlet weak var getReadyTeamImgView: UIImageView!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var redScoreLabel: UILabel!
@@ -204,6 +205,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     }
     
     func showGetReadyTeam(){
+        changeTeam()
+        welcomeLabel.text = "\(ACTUALTEAM()) TEAM, GET READY!"
+        getReadyTeamImgView.image = UIImage(named: "\(actualTeam())")
+        changeTeam()
         teamGetReadyView.isHidden = false
         teamGetReadyView.alpha = 1.0
     }
@@ -234,7 +239,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
         scoredLabel.text = "IT'S A TIE! PLAY AGAIN TO SOLVE THIS."
         scoredUIImageView.image = UIImage(named: "Empate fundo")
-        peopleCelebratingImgView.alpha = 0
+        peopleCelebratingImgView.alpha = 1
         
         showScoredView()
     }
@@ -245,7 +250,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
         scoredLabel.text = "THE \(ACTUALTEAM()) TEAM LOSE!"
         scoredUIImageView.image = UIImage(named: "\(actualTeam())lose")
-        peopleCelebratingImgView.alpha = 0
+        peopleCelebratingImgView.alpha = 1
         
         showScoredView()
         
@@ -265,14 +270,22 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             model.actualTeam = 0
         }
         // Change the team
-        else if model.actualTeam == 0 {
-            model.actualTeam = 1
-        } else {
-            model.actualTeam = 0
+        else {
+            changeTeam()
         }
         
         if !timer.isValid {
             startTimer(segundos: totalTime)
+        }
+    }
+    
+    func changeTeam(){
+        if model.actualTeam == 0 {
+            model.actualTeam = 1
+        } else if model.actualTeam == 1 {
+            model.actualTeam = 0
+        } else {
+            print("Team not changed!")
         }
     }
     
@@ -309,9 +322,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func timeIsUp(){
         
-        // Some team won
-        var winner = false
-        
         // Stop and reset the timer
         resetTimer()
         
@@ -320,12 +330,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         }
         
         // Both of the teams played and some team won and it isn't a tie!
-        if model.actualTeam == 1, (model.teams[formNow].points > finishLine || model.teams[1].points > finishLine) && model.teams[0].points != model.teams[1].points {
+        if model.actualTeam == 1, (model.teams[0].points > finishLine || model.teams[1].points > finishLine) && model.teams[0].points != model.teams[1].points {
             callVictory()
-            winner = true
         }
-        
-        if !winner {
+        else {
             // If the team haven't made any points
             if model.actualPoints == 0 {
                 showLosed()
@@ -333,11 +341,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             // If somebody has scored but haven't won.
             else if model.teams[0].points != model.teams[1].points {
                 showScored()
-                showGetReadyTeam()
             }
             else {
                 showTie()
             }
+            showGetReadyTeam()
         }
         
     }
@@ -400,6 +408,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         if model.teams[0].points == model.teams[1].points {
             // TODO: EMPATE! O QUE FAZER?
             startPhase()
+            return
         }
         // RED won
         else if model.teams[0].points >= finishLine {
