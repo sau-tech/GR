@@ -36,7 +36,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     // Precision for judging the pose [0.0 ~ 1.0]
     let precision : Double = 0.85
     // Seconds needed to stay in the pose
-    let secondsToPose = TimeInterval(1.5)
+    let secondsToPose = TimeInterval(0.75)
     
     let timeFrame = 0.05
     
@@ -196,6 +196,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     func showGetReady(){
         prepareToPlayView.isHidden = false
         prepareToPlayView.alpha = 1.0
+        form.alpha = 0.0
+
     }
     
     func hideGetReadyTeam(){
@@ -258,13 +260,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     func startPhase() {
         formNow = Int.random(in: 0 ..< 6)
-        print("nha")
         let poseImg : UIImage? = UIImage(named: Forms.shared.Poses[formNow].image)
 //        let poseImg : UIImage = UIImage(named: "pose \(formNow)")!
         form.image = poseImg
         model.winner = -1
         model.secondsInPose = TimeInterval(0)
-        
+        form.alpha = 1.0
         // Team that starts
         if model.actualTeam == -1 {
             model.actualTeam = 0
