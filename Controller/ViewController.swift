@@ -282,24 +282,23 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         // Shows the error message
         if character?.isActive ?? false {
             self.errorLabel.alpha = 0
+            if model.time > 0 {
+                model.time -= timeFrame
+                refreshTimer()
+                if model.time <= 0 {
+                    timeIsUp()
+                }
+            }
+            if judgePose() >= precision {
+                model.secondsInPose += timeFrame
+                if model.secondsInPose >= secondsToPose {
+                    timeIsUp()
+                }
+            }
         } else {
             self.errorLabel.alpha = 1.0
         }
         
-        if model.time > 0 {
-            model.time -= timeFrame
-            refreshTimer()
-            if model.time <= 0 {
-                timeIsUp()
-            }
-        }
-        
-        if judgePose() >= precision {
-            model.secondsInPose += timeFrame
-            if model.secondsInPose >= secondsToPose {
-                timeIsUp()
-            }
-        }
         
     }
     
