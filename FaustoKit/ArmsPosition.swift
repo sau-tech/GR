@@ -110,7 +110,6 @@ class ArmsPosition  {
             }
         }
         else {
-            print(bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform))
             if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.45 && forearmAngle > 125.0 && forearmCase != .down {
                 return .retoOutstretched    //braço esticados
             } else if forearmCase == .down {
