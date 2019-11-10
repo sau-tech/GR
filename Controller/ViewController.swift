@@ -302,13 +302,18 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
     }
     
+    func resetTimer(){
+        timer.invalidate()
+        model.time = totalTime
+    }
+    
     func timeIsUp(){
         
         // Some team won
         var winner = false
         
-        // Stop the timer
-        timer.invalidate()
+        // Stop and reset the timer
+        resetTimer()
         
         if judgePose() >= precision  || model.secondsInPose >= secondsToPose {
             prize()
