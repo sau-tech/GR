@@ -254,8 +254,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     func startPhase() {
         formNow = Int.random(in: 0 ..< 6)
         print("nha")
-        let poseImg : UIImage? = Forms.shared.Poses[formNow].image
-        
+        let poseImg : UIImage? = UIImage(named: Forms.shared.Poses[formNow].image)
+//        let poseImg : UIImage = UIImage(named: "pose \(formNow)")!
         form.image = poseImg
         model.winner = -1
         model.secondsInPose = TimeInterval(0)
@@ -356,10 +356,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
                 forms.Poses[0].rightKneeCase == bodyPosition1.rightKneeCase &&
                 forms.Poses[0].rightLegCase == bodyPosition1.rightLegCase {
                 
-                print("certo")
+//                print("certo")
                 return 1
 
-        } else { print("ta errado"); return 0}
+            } else { return 0 } //print("ta errado"); return 0}
 
         // print(bodyPosition1)
 
@@ -483,7 +483,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             if let character = character{
                 startTracking = true
                 bodyPosition1 = faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
-                
+                print(bodyPosition1.rightArmCase, ", ", bodyPosition1.rightHandCase)
             }
         }
     }

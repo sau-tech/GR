@@ -21,11 +21,12 @@ class LeftArmPosition: ArmsPosition {
     init(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) {
 
         guard let lForearmName = character?.jointName(forPath: "left_forearm_joint" ) else { print("left_forearm_joint not found!"); return}
-        
+        guard let lShoulderName = character?.jointName(forPath: "left_arm_joint" ) else { print("left_arm_joint not found!"); return}
+
         // Pega o index das joints necessárias
         let lForearmIndex = ARSkeletonDefinition.defaultBody3D.index(for: lForearmName)
         let lHandIndex = ARSkeletonDefinition.defaultBody3D.index(for: .leftHand)
-        let lShoulderIndex = ARSkeletonDefinition.defaultBody3D.index(for: .leftShoulder)
+        let lShoulderIndex = ARSkeletonDefinition.defaultBody3D.index(for: lShoulderName)
         
         //Pega o transform global das joints(coordenadas em relação a root)
         lShoulderTransform = bodyAnchor.skeleton.jointModelTransforms[lShoulderIndex].columns.3
@@ -37,7 +38,7 @@ class LeftArmPosition: ArmsPosition {
     
     func lArmPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> armCases{
         let lForearmCase = LeftShoulderToForearmPos(character: character, bodyAnchor: bodyAnchor, lHandTransform: lHandTransform, lForearmTransform: lForearmTransform, lShoulderTransform: lShoulderTransform)
-        let lHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmCase: lForearmCase, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform)
+        let lHandCase = ForearmToHandPos(character: character, bodyAnchor: bodyAnchor, forearmCase: lForearmCase, HandTransform: lHandTransform, ForearmTransform: lForearmTransform, ShoulderTransform: lShoulderTransform, leftArm: true)
 //        print("Left Arm: ", lForearmSubcase, ", ", lHandCase )
         return armCases(ArmCase: lForearmCase, HandCase: lHandCase)
 
