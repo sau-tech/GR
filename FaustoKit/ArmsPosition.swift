@@ -83,13 +83,13 @@ class ArmsPosition  {
         let forearmAngle = abs(bodyPart.angle(vector1: handForearmVector, vector2: shoulderForearmVector))
         let crossVector = (simd_normalize(simd_cross(handForearmVector, shoulderForearmVector))) //produto vetorial deve bastar para saber o sentido
         if leftArm {
-            if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.55 && forearmAngle > 125.0 && forearmCase != .down {
+            if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.45 && forearmAngle > 125.0 && forearmCase != .down {
                 return .retoOutstretched    //braço esticados
             } else if forearmCase == .down {
-                if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.55 && forearmAngle > 140.0 && forearmCase != .down { return .retoOutstretched }
+                if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.47 && forearmAngle > 140.0 { return .retoOutstretched }
                 if crossVector.z < 0 {   //braço pra baixo
-                    if forearmAngle > 130.0 { return .bentDownOut }
-                    else if forearmAngle > 100 { return .bentDown }
+                    if forearmAngle > 125.0 { return .bentDownOut }
+                    else if forearmAngle > 95 { return .bentDown }
                     else if forearmAngle > 70 { return .bentDownIn }
                     
                 } else {
@@ -109,19 +109,15 @@ class ArmsPosition  {
                 else if forearmAngle > 55 { return .bentUpIn }
             }
         }
-//            > 140 = esticado
-//            > 130 = fora
-//            > 100 = reto
-//            > 70 = reto dentro
         else {
-//            print(forearmAngle)
-            if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.55 && forearmAngle > 125.0 && forearmCase != .down {
+            print(bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform))
+            if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.45 && forearmAngle > 125.0 && forearmCase != .down {
                 return .retoOutstretched    //braço esticados
             } else if forearmCase == .down {
-                if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.55 && forearmAngle > 140.0 && forearmCase != .down { return .retoOutstretched }
-                if crossVector.z < 0 {   //braço pra baixo
-                    if forearmAngle > 130.0 { return .bentUpOut }
-                    else if forearmAngle > 100 { return .bentUp }
+                if bodyPart.distance(joint1: ShoulderTransform, joint2: HandTransform) > 0.47 && forearmAngle > 140.0 { return .retoOutstretched }
+                if crossVector.z < 0 {   //braço dobrado pra baixo
+                    if forearmAngle > 125.0 { return .bentUpOut }
+                    else if forearmAngle > 95 { return .bentUp }
                     else if forearmAngle > 70 { return .bentUpIn }
                     
                 } else {
@@ -130,7 +126,7 @@ class ArmsPosition  {
                     else if forearmAngle > 55 { return .bentDownIn }
                 }
                 
-            } else if crossVector.z < 0 {   //braço pra baixo
+            } else if crossVector.z < 0 {   //braço dobrado pra cima
                 if forearmAngle > 105.0 { return .bentUpOut }
                 else if forearmAngle > 80 { return .bentUp }
                 else if forearmAngle > 55 { return .bentUpIn }

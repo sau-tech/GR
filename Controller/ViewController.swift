@@ -473,7 +473,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
                 // 1. the body anchor was detected and
                 // 2. the character was loaded.
                 
-                
                 if showRobot {
                     characterAnchor.addChild(character)
                 }
