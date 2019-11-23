@@ -10,15 +10,16 @@
 		425665CE236B07D10010D1C4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425665CC236B07D10010D1C4 /* Model.swift */; };
 		425665CF236B07D10010D1C4 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425665CD236B07D10010D1C4 /* Team.swift */; };
 		AF02D5F623730A6C00FB3304 /* character in Resources */ = {isa = PBXBuildFile; fileRef = AF02D5F523730A6C00FB3304 /* character */; };
-		AF02D5FF23730C8600FB3304 /* ArmsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FA23730C8600FB3304 /* ArmsPosition.swift */; };
-		AF02D60023730C8600FB3304 /* LeftLegPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FC23730C8600FB3304 /* LeftLegPosition.swift */; };
-		AF02D60123730C8600FB3304 /* FaustoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FE23730C8600FB3304 /* FaustoKit.swift */; };
-		AF02D60223730C8600FB3304 /* Bodypart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5F923730C8600FB3304 /* Bodypart.swift */; };
-		AF02D60323730C8600FB3304 /* RightLegPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5F723730C8500FB3304 /* RightLegPosition.swift */; };
-		AF02D60423730C8600FB3304 /* RightArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FD23730C8600FB3304 /* RightArmPosition.swift */; };
-		AF02D60523730C8600FB3304 /* LegsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5FB23730C8600FB3304 /* LegsPosition.swift */; };
-		AF02D60623730C8600FB3304 /* LeftArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D5F823730C8500FB3304 /* LeftArmPosition.swift */; };
 		AF62250A2374742100011DF4 /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6225092374742100011DF4 /* Pose.swift */; };
+		AFBC088A2389A31600497332 /* RightArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08812389A31500497332 /* RightArmPosition.swift */; };
+		AFBC088B2389A31600497332 /* Bodypart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08822389A31500497332 /* Bodypart.swift */; };
+		AFBC088C2389A31600497332 /* LeftLegPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08832389A31600497332 /* LeftLegPosition.swift */; };
+		AFBC088D2389A31600497332 /* PositionCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08842389A31600497332 /* PositionCases.swift */; };
+		AFBC088E2389A31600497332 /* LeftArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08852389A31600497332 /* LeftArmPosition.swift */; };
+		AFBC088F2389A31600497332 /* LegsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08862389A31600497332 /* LegsPosition.swift */; };
+		AFBC08902389A31600497332 /* RightLegPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08872389A31600497332 /* RightLegPosition.swift */; };
+		AFBC08912389A31600497332 /* PoseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08882389A31600497332 /* PoseKit.swift */; };
+		AFBC08922389A31600497332 /* ArmsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC08892389A31600497332 /* ArmsPosition.swift */; };
 		D410C2A22361E3E000C1973D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A12361E3E000C1973D /* AppDelegate.swift */; };
 		D410C2A42361E3E000C1973D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A32361E3E000C1973D /* SceneDelegate.swift */; };
 		D410C2A62361E3E000C1973D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410C2A52361E3E000C1973D /* ViewController.swift */; };
@@ -38,15 +39,16 @@
 		425665CC236B07D10010D1C4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		425665CD236B07D10010D1C4 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		AF02D5F523730A6C00FB3304 /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; path = character; sourceTree = "<group>"; };
-		AF02D5F723730C8500FB3304 /* RightLegPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightLegPosition.swift; sourceTree = "<group>"; };
-		AF02D5F823730C8500FB3304 /* LeftArmPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftArmPosition.swift; sourceTree = "<group>"; };
-		AF02D5F923730C8600FB3304 /* Bodypart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bodypart.swift; sourceTree = "<group>"; };
-		AF02D5FA23730C8600FB3304 /* ArmsPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmsPosition.swift; sourceTree = "<group>"; };
-		AF02D5FB23730C8600FB3304 /* LegsPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegsPosition.swift; sourceTree = "<group>"; };
-		AF02D5FC23730C8600FB3304 /* LeftLegPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftLegPosition.swift; sourceTree = "<group>"; };
-		AF02D5FD23730C8600FB3304 /* RightArmPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArmPosition.swift; sourceTree = "<group>"; };
-		AF02D5FE23730C8600FB3304 /* FaustoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaustoKit.swift; sourceTree = "<group>"; };
 		AF6225092374742100011DF4 /* Pose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
+		AFBC08812389A31500497332 /* RightArmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightArmPosition.swift; sourceTree = "<group>"; };
+		AFBC08822389A31500497332 /* Bodypart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bodypart.swift; sourceTree = "<group>"; };
+		AFBC08832389A31600497332 /* LeftLegPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftLegPosition.swift; sourceTree = "<group>"; };
+		AFBC08842389A31600497332 /* PositionCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionCases.swift; sourceTree = "<group>"; };
+		AFBC08852389A31600497332 /* LeftArmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftArmPosition.swift; sourceTree = "<group>"; };
+		AFBC08862389A31600497332 /* LegsPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegsPosition.swift; sourceTree = "<group>"; };
+		AFBC08872389A31600497332 /* RightLegPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightLegPosition.swift; sourceTree = "<group>"; };
+		AFBC08882389A31600497332 /* PoseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseKit.swift; sourceTree = "<group>"; };
+		AFBC08892389A31600497332 /* ArmsPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmsPosition.swift; sourceTree = "<group>"; };
 		D410C29E2361E3E000C1973D /* GetReady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetReady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D410C2A12361E3E000C1973D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D410C2A32361E3E000C1973D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,25 +77,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF02D60823730D5300FB3304 /* FaustoKit */ = {
+		AFBC08932389A34C00497332 /* PoseKit */ = {
 			isa = PBXGroup;
 			children = (
-				AF02D5FE23730C8600FB3304 /* FaustoKit.swift */,
-				AF02D5F823730C8500FB3304 /* LeftArmPosition.swift */,
-				AF02D5FC23730C8600FB3304 /* LeftLegPosition.swift */,
-				AF02D5FB23730C8600FB3304 /* LegsPosition.swift */,
-				AF02D5FD23730C8600FB3304 /* RightArmPosition.swift */,
-				AF02D5F723730C8500FB3304 /* RightLegPosition.swift */,
-				AF02D5FA23730C8600FB3304 /* ArmsPosition.swift */,
-				AF02D5F923730C8600FB3304 /* Bodypart.swift */,
+				AFBC08892389A31600497332 /* ArmsPosition.swift */,
+				AFBC08822389A31500497332 /* Bodypart.swift */,
+				AFBC08852389A31600497332 /* LeftArmPosition.swift */,
+				AFBC08832389A31600497332 /* LeftLegPosition.swift */,
+				AFBC08862389A31600497332 /* LegsPosition.swift */,
+				AFBC08882389A31600497332 /* PoseKit.swift */,
+				AFBC08842389A31600497332 /* PositionCases.swift */,
+				AFBC08812389A31500497332 /* RightArmPosition.swift */,
+				AFBC08872389A31600497332 /* RightLegPosition.swift */,
 			);
-			path = FaustoKit;
+			path = PoseKit;
 			sourceTree = "<group>";
 		};
 		D410C2952361E3E000C1973D = {
 			isa = PBXGroup;
 			children = (
-				AF02D60823730D5300FB3304 /* FaustoKit */,
 				AF02D5F523730A6C00FB3304 /* character */,
 				D410C2A02361E3E000C1973D /* GetReady */,
 				D410C2B923631C0A00C1973D /* View */,
@@ -116,6 +118,7 @@
 		D410C2A02361E3E000C1973D /* GetReady */ = {
 			isa = PBXGroup;
 			children = (
+				AFBC08932389A34C00497332 /* PoseKit */,
 				D410C2B22361E3E100C1973D /* Info.plist */,
 				D410C2AA2361E3E000C1973D /* GetReady.xcdatamodeld */,
 				D410C2A12361E3E000C1973D /* AppDelegate.swift */,
@@ -246,24 +249,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF02D60523730C8600FB3304 /* LegsPosition.swift in Sources */,
+				AFBC08902389A31600497332 /* RightLegPosition.swift in Sources */,
+				AFBC08922389A31600497332 /* ArmsPosition.swift in Sources */,
+				AFBC088F2389A31600497332 /* LegsPosition.swift in Sources */,
+				AFBC088E2389A31600497332 /* LeftArmPosition.swift in Sources */,
+				AFBC088A2389A31600497332 /* RightArmPosition.swift in Sources */,
 				425665CE236B07D10010D1C4 /* Model.swift in Sources */,
-				AF02D60623730C8600FB3304 /* LeftArmPosition.swift in Sources */,
 				D410C2A62361E3E000C1973D /* ViewController.swift in Sources */,
 				D4F992322369CB6E002C5312 /* TutorialViewController.swift in Sources */,
 				D410C2A22361E3E000C1973D /* AppDelegate.swift in Sources */,
-				AF02D60423730C8600FB3304 /* RightArmPosition.swift in Sources */,
-				AF02D5FF23730C8600FB3304 /* ArmsPosition.swift in Sources */,
+				AFBC088B2389A31600497332 /* Bodypart.swift in Sources */,
+				AFBC088C2389A31600497332 /* LeftLegPosition.swift in Sources */,
 				D45BCEF02363316D00792A89 /* WinViewController.swift in Sources */,
-				AF02D60323730C8600FB3304 /* RightLegPosition.swift in Sources */,
 				D410C2AC2361E3E000C1973D /* GetReady.xcdatamodeld in Sources */,
 				D410C2A42361E3E000C1973D /* SceneDelegate.swift in Sources */,
-				AF02D60223730C8600FB3304 /* Bodypart.swift in Sources */,
-				AF02D60023730C8600FB3304 /* LeftLegPosition.swift in Sources */,
 				D4F992302369BFBF002C5312 /* PrintExtension.swift in Sources */,
 				425665CF236B07D10010D1C4 /* Team.swift in Sources */,
+				AFBC088D2389A31600497332 /* PositionCases.swift in Sources */,
 				AF62250A2374742100011DF4 /* Pose.swift in Sources */,
-				AF02D60123730C8600FB3304 /* FaustoKit.swift in Sources */,
+				AFBC08912389A31600497332 /* PoseKit.swift in Sources */,
 				D4F992342369CBEC002C5312 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

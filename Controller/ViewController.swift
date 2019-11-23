@@ -22,11 +22,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
     
     var showRobot = true
     var startTracking = false
-    var bodyPosition1 : PositionCases!
+//    var bodyPosition1 : PositionCa
     
     var model = Model.shared
     var timer = Timer()
-    let faustoKit = FaustoKit()
+    let poseKit = PoseKit()
+    
     // Total time for a phase
     let totalTime = TimeInterval(10.0)
     // Points needed for winning
@@ -351,32 +352,31 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
         
     }
     
-    // TODO: PUT THE FRAMEWORK HERE!
     func judgePose() -> Double {
         var score : Double
         let forms = Forms.shared
 //        score = Double.random(in: 0.5 ..< 1.0)
 //        print(model.secondsInPose)
 //        return score
-        if startTracking {
-
-            if forms.Poses[0].leftArmCase == bodyPosition1.leftArmCase &&
-                forms.Poses[0].leftHandCase == bodyPosition1.leftHandCase &&
-                forms.Poses[0].leftKneeCase == bodyPosition1.leftKneeCase &&
-                forms.Poses[0].leftLegCase == bodyPosition1.leftLegCase &&
-                forms.Poses[0].rightArmCase == bodyPosition1.rightArmCase &&
-                forms.Poses[0].rightHandCase == bodyPosition1.rightHandCase &&
-                forms.Poses[0].rightKneeCase == bodyPosition1.rightKneeCase &&
-                forms.Poses[0].rightLegCase == bodyPosition1.rightLegCase {
-                
-//                print("certo")
-                return 1
-
-            } else { return 0 } //print("ta errado"); return 0}
+//        if startTracking {
+//
+//            if forms.Poses[0].leftArmCase == bodyPosition1.leftArmCase &&
+//                forms.Poses[0].leftHandCase == bodyPosition1.leftHandCase &&
+//                forms.Poses[0].leftKneeCase == bodyPosition1.leftKneeCase &&
+//                forms.Poses[0].leftLegCase == bodyPosition1.leftLegCase &&
+//                forms.Poses[0].rightArmCase == bodyPosition1.rightArmCase &&
+//                forms.Poses[0].rightHandCase == bodyPosition1.rightHandCase &&
+//                forms.Poses[0].rightKneeCase == bodyPosition1.rightKneeCase &&
+//                forms.Poses[0].rightLegCase == bodyPosition1.rightLegCase {
+//
+////                print("certo")
+//                return 1
+//
+//            } else { return 0 } //print("ta errado"); return 0}
 
         // print(bodyPosition1)
 
-        }
+       // }
         return 0
     }
     
@@ -495,8 +495,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePi
             
             if let character = character{
                 startTracking = true
-                bodyPosition1 = faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
-                print(bodyPosition1.rightArmCase, ", ", bodyPosition1.rightHandCase)
+//                bodyPosition1 = faustoKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor)
+//                print(bodyPosition1.rightArmCase, ", ", bodyPosition1.rightHandCase)
+                print(poseKit.BodyTrackingPosition(character: character, bodyAnchor: bodyAnchor))
             }
         }
     }

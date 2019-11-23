@@ -9,13 +9,19 @@
 import ARKit
 import RealityKit
 
-class RightLegPosition : LegsPosition {
+/// This class is responsible for the **right leg**.
+internal class RightLegPosition : LegsPosition {
 
+    /// **Knee's** global coordinates.
     var rKneeTransform : simd_float4!
+    /// **Root's** global coordinates.
     var rootTransform : simd_float4!
+    /// **Foot's** global coordinates.
     var rFootTransform : simd_float4!
+    /// **Leg's** global coordinates.
     var rLegTransform : simd_float4!
 
+/// Initiates the class and looks for the right knee and leg joint by getting the joint's index and global coordinates to the root.
     init(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) {
     
         guard let rKnee = character?.jointName(forPath: "right_leg_joint") else { print("falha de leitura right leg"); return}
@@ -31,21 +37,15 @@ class RightLegPosition : LegsPosition {
         rFootTransform = bodyAnchor.skeleton.jointModelTransforms[rFootIndex].columns.3
         rLegTransform = bodyAnchor.skeleton.jointModelTransforms[rLegIndex].columns.3
         
-//        let vectorRightFootToLeg = vector(joint1: rFootTransform, joint2: rLegTransform)
-//        let vectorRootRightLeg = vector(joint1: rootTransform, joint2: rLegTransform)
-//
-//        let vectorRightLegToKnee = vector(joint1: rKneeTransform, joint2: rLegTransform)
-//        let vectorRightLegFoot = vector(joint1: rLegTransform, joint2: rFootTransform)
-//
-//        let anguloJD = angle(vector1: vectorRightLegToKnee, vector2: vectorRightLegFoot)
     }
-    
-    func rLegPos(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> legCases{
 
-        let rLegToKneeCase = LegToKneePos( kneeTransform: rKneeTransform, legTransform: rLegTransform)
-        let rKneeToFootCase = KneeToFootPos(kneeTransform: rKneeTransform, legTransform: rLegTransform, footTransform: rFootTransform, legToKneeSubcase: rLegToKneeCase)
-     
-        return legCases(legCase: rLegToKneeCase, kneeCase: rKneeToFootCase)
+/// Calculates the **leg's position**.
+    func rLegPosition(character: BodyTrackedEntity?, bodyAnchor: ARBodyAnchor) -> legCases{
 
+        let rLegToKneeSubcase = LegToKneePos( kneeTransform: rKneeTransform, legTransform: rLegTransform)
+        let rKneeToFootCase = KneeToFootPos(kneeTransform: rKneeTransform, legTransform: rLegTransform, footTransform: rFootTransform, legToKneeSubcase: rLegToKneeSubcase)
+        
+        return legCases(legCase: rLegToKneeSubcase, kneeCase: rKneeToFootCase)
     }
+
 }
